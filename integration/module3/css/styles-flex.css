@@ -1,0 +1,170 @@
+@charset "UTF-8";
+@import "https://fonts.googleapis.com/css?family=Open+Sans|Oswald";
+@import "../fonts/font-awesome/css/font-awesome.css";
+.clear {
+    clear: both;
+    height: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../images/fond.png");
+    background-position: center top;
+    font-family: 'Open Sans', sans-serif;
+    color: #505050;
+}
+
+a {
+    /*Transition*/
+    -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -o-transition: All .5s ease;
+}
+
+header img:hover {
+    /*Transition*/
+    -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -o-transition: All .5s ease;
+    /*Transform*/
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+header, main, footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #B9CB1F;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header img.logo {
+    margin: 0;
+    padding: 0;
+}
+
+header nav {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #324A14;
+    margin: 0 20px;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 0 #d2e14a;
+}
+
+header nav a:hover {
+    color: white;
+    padding: 20px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f3c5bd+0,e86c57+50,ea2803+51,ff6600+75,c72200+100;Red+Gloss */
+    background: #f3c5bd;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f3c5bd 0%, #e86c57 50%, #ea2803 51%, #ff6600 75%, #c72200 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f3c5bd 0%, #e86c57 50%, #ea2803 51%, #ff6600 75%, #c72200 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f3c5bd 0%, #e86c57 50%, #ea2803 51%, #ff6600 75%, #c72200 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f3c5bd', endColorstr='#c72200', GradientType=0);
+    /* IE6-9 */
+    border-radius: 10px;
+    -webkit-box-shadow: 20px 20px 10px 0 rgba(125, 001, 100, 1);
+    box-shadow: 20px 20px 10px 0 rgba(125, 001, 100, 1);
+}
+
+main {
+    background-color: white;
+}
+
+nav a, h1 {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
+article {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+article h1 {
+    color: #B9CB1F;
+    font-weight: normal;
+    width: 100%;
+}
+
+article img {
+    max-width: 200px;
+    margin: 0 8px 20px 0;
+    flex: 0 0 12em;
+}
+
+article p {
+    flex: 2
+}
+
+article a {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    background-color: #B9CB1F;
+    width: 100%;
+}
+
+article a:hover {
+    background-color: #324A14;
+    /*Transform*/
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+}
+
+footer p {
+    text-align: center;
+}
+
+.div1, .div2 {
+    width: 200px;
+    height: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.div1 {
+    background-color: beige;
+}
+
+.div2 {
+    background-color: midnightblue;
+}
+
+ul.inside {
+    list-style: inside;
+}
+
+ul.pimped {
+    list-style-type: none;
+}
+
+ul.pimped li:before {
+    content: attr(<i class='fa fa-pagelines' aria-hidden='true'>);
+    ;
+}

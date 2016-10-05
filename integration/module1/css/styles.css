@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Indie+Flower';
+
+/*global*/
+
+body {
+  background-color: #0e0e3f;
+    font-family: 'Open Sans', sans-serif;
+    color: goldenrod;
+}
+
+a {
+    text-align: center;
+    color: MidnightBlue;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+    padding: 20px;
+    background-color: Chartreuse;
+    word-wrap: break-word;
+}
+
+a:hover {
+    color: yellow;
+    /*Transition*/
+    -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -o-transition: All .5s ease;
+    /*Transform*/
+    -webkit-transform: rotate(-10deg) scale(1.2);
+    -moz-transform: rotate(-10deg) scale(1.2);
+    -o-transform: rotate(-10deg) scale(1.2);
+}
+
+img:hover {
+    *Transition*/ -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -o-transition: All .5s ease;
+    /*Transform*/
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+
+/*footer*/
+
+footer .red {
+    color: red;
+}
+
+footer .blue {
+    color: blue;
+}
+
+footer .green {
+    color: green;
+}
+
+footer p.comic {
+    font-family: 'Indie Flower', cursive;
+}
+
+footer p.arial {
+    font-family: Arial, Sans-serif;
+}
+
+footer .bgRed {
+    background-color: red;
+}
+
+footer .bgBlue {
+    background-color: blue;
+}
+
+footer .bgGreen {
+    background-color: green;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
