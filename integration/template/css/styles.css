@@ -36,3 +36,11 @@ ul li {
         font-size: 90%;
     }
 }
+
+ul li:not(.not):hover {
+    color: lime;
+}
+
+* {
+    display: none
+}
