@@ -2,10 +2,10 @@ var randomNumber = 0;
 var playerChoice = 0;
 var playerChoices = [];
 var difficulty = 1;
-var min = [1,1,1];
-var max = [15,25,40];
-var chances = [10,8,4];
-var encouragement ="";
+var min = [1, 1, 1];
+var max = [15, 25, 40];
+var chances = [10, 8, 4];
+var encouragement = "";
 
 // on génère un nombre aléatoire entre min et max inclus
 function getRandomIntInclusive(min, max) {
@@ -17,21 +17,27 @@ function getRandomIntInclusive(min, max) {
 // on demande au joueur de choisir un nombre avec gestion d'erreur de saisie
 function askPlayerChoice(encouragement) {
 
-    playerChoice = parseInt(prompt(encouragement + " deviner un nombre aléatoire entre " + min[difficulty-1] + " et " + max[difficulty-1]));
+    playerChoice = prompt(encouragement + " deviner un nombre aléatoire entre " + min[difficulty - 1] + " et " + max[difficulty - 1]);
     console.log(playerChoice);
 
-    while (!(testPlayerChoice(playerChoice))) {
-        playerChoice = parseInt(prompt("Merci d'entrer un nombre entre " + min[difficulty-1] + " et " + max[difficulty-1]));
-    }
+    if (playerChoice === null) {
+      stopGame();
+    } else {
 
-    return playerChoice;
+        playerChoice = parseInt(playerChoice);
+        while (!(testPlayerChoice(playerChoice))) {
+            playerChoice = parseInt(prompt("Merci d'entrer un nombre entre " + min[difficulty - 1] + " et " + max[difficulty - 1]));
+        }
+
+        return playerChoice;
+    }
 
 }
 
 // on test la valdité du choix du joueur
 function testPlayerChoice(choice) {
 
-    if (isNaN(parseInt(choice)) || choice > max[difficulty-1] || choice <= 0) {
+    if (isNaN(parseInt(choice)) || choice > max[difficulty - 1] || choice <= 0) {
         console.log(choice + " is an invalide choice");
 
         return false;
@@ -55,19 +61,19 @@ function compareNumbers(num1, num2) {
 
 // Moteur du jeu - on génère un nombre et on lance les demandes le bon nombre de fois puis on affiche le résultat
 function game() {
-    randomNumber = getRandomIntInclusive(min[difficulty-1], max[difficulty-1]); // on génère un nombre à deviner entre min et max en fonction de la difficulté
+    randomNumber = getRandomIntInclusive(min[difficulty - 1], max[difficulty - 1]); // on génère un nombre à deviner entre min et max en fonction de la difficulté
     console.log("Le numéro à découvrir est " + randomNumber);
 
-    for (var i = 0; i < chances[difficulty-1]+1; i++) { // on va faire deviner un nombre de fois maximal défini par la difficulté
-        if (i === chances[difficulty-1]) {
+    for (var i = 0; i < chances[difficulty - 1] + 1; i++) { // on va faire deviner un nombre de fois maximal défini par la difficulté
+        if (i === chances[difficulty - 1]) {
             alert("Vous avez perdu avec ces combinaisons : " + playerChoices + "\n Il fallait trouver " + randomNumber); // on affiche le message d'echec, les choix du joueur et la solution.
             playAgain();
             break; // on casse la boucle puisque le jeu est terminé
         }
-        if (i === 0){
-          playerChoice = askPlayerChoice(""); // on demande son choix au joueur
+        if (i === 0) {
+            playerChoice = askPlayerChoice(""); // on demande son choix au joueur
         } else {
-          playerChoice = askPlayerChoice("Ce n'est pas ça, essayer encore de"); // on demande son choix au joueur
+            playerChoice = askPlayerChoice("Ce n'est pas ça, essayer encore de"); // on demande son choix au joueur
         }
         playerChoices.push(playerChoice); // on stocke le choix
         console.log("Le joueur a choisi " + playerChoices);
@@ -106,12 +112,16 @@ function testDifficulty(difficulty) {
     }
 }
 
-function playAgain(){
-    if (confirm("Voulez-vous rejouer ?")){
-      game(askDifficulty());
+function playAgain() {
+    if (confirm("Voulez-vous rejouer ?")) {
+        game(askDifficulty());
     } else {
-      alert("Merci d'avoir joué !");
+        alert("Merci d'avoir joué !");
     }
+}
+
+function stopGame() {
+  
 }
 
 
