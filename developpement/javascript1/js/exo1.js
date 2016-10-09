@@ -17,21 +17,13 @@ function getRandomIntInclusive(min, max) {
 // on demande au joueur de choisir un nombre avec gestion d'erreur de saisie
 function askPlayerChoice(encouragement) {
 
-    playerChoice = prompt(encouragement + " deviner un nombre aléatoire entre " + min[difficulty - 1] + " et " + max[difficulty - 1]);
-    console.log(playerChoice);
+    playerChoice = parseInt(prompt(encouragement + " deviner un nombre aléatoire entre " + min[difficulty - 1] + " et " + max[difficulty - 1]));
+    console.log("Choix " + playerChoice);
 
-    if (playerChoice === null) {
-      stopGame();
-    } else {
-
-        playerChoice = parseInt(playerChoice);
-        while (!(testPlayerChoice(playerChoice))) {
-            playerChoice = parseInt(prompt("Merci d'entrer un nombre entre " + min[difficulty - 1] + " et " + max[difficulty - 1]));
+    while (!(testPlayerChoice(playerChoice))) {
+                    playerChoice = parseInt(prompt("Merci d'entrer un nombre entre " + min[difficulty - 1] + " et " + max[difficulty - 1]));
         }
-
         return playerChoice;
-    }
-
 }
 
 // on test la valdité du choix du joueur
@@ -83,8 +75,9 @@ function game() {
             break; // on casse la boucle puisque le jeu est terminé
         } else if ((Math.abs(randomNumber - playerChoice)) <= 2) {
             alert("Vous êtes bouillant"); // on affiche le message que le joueur approche de la réponse
+
         }
-        console.log(Math.abs(randomNumber - playerChoice));
+        console.log("Ecart " + Math.abs(randomNumber - playerChoice));
     }
 }
 
@@ -119,11 +112,6 @@ function playAgain() {
         alert("Merci d'avoir joué !");
     }
 }
-
-function stopGame() {
-  
-}
-
 
 
 game(askDifficulty());
