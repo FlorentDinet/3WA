@@ -23,7 +23,7 @@ julien@meetserious.com
 pour supprimer une valeur d'un tableau :
 delete tableau[i];
 
-attention la console affiche toujours l'ancienne longueur de tableau pour debugger
+attention la console affiche toujours l'ancienne longueur de tableau pour debugger ( quand on le modifie)
 
 exo 1
 
