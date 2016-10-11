@@ -247,6 +247,19 @@ footer {
     padding: 40px;
 }
 
+.giveMeSpaceTop {
+    margin-top: 3em;
+}
+
+.giveMeSpaceBoth {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.giveMeSpaceBot {
+    margin-bottom: 3em;
+}
+
 
 /*RESPONSIVE*/
 

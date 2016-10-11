@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>flexbox</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section>
+  <h1>CSS Flexbox !</h1>
+
+<h1>5 propriétés sur le container (le parent) ..</h1>
+</section>
+  <div class="example example-default">
+    <h2>Affichage par défaut</h2>
+    <div class="example-content">
+
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+
+    </div>
+  </div>
+
+<hr>
+<section>
+  <div class="example example-flex">
+    <h2>Affichage en flex "display: flex;"</h2>
+    <div class="example-content">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<section>
+  <h1>flex direction</h1>
+
+
+  <div class="example example-direction">
+    <h2>flex-direction: row;</h2>
+    <div class="example-content row">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-direction">
+    <h2>flex-direction: row-reverse</h2>
+    <div class="example-content row-reverse">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-direction">
+    <h2>flex-direction: column</h2>
+    <div class="example-content column">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-direction">
+    <h2>flex-direction: column-reverse</h2>
+    <div class="example-content column-reverse">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <h1>Flex wrap</h1>
+
+<div class="example example-wrap">
+    <h2>flex-wrap: no-wrap</h2>
+    <div class="example-content no-wrap">
+
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="example example-wrap">
+    <h2>flex-wrap: wrap</h2>
+    <div class="example-content wrap">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-wrap">
+    <h2>flex-wrap: wrap-reverse</h2>
+    <div class="example-content wrap-reverse">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+
+<hr>
+
+<section>
+  
+  <h1>justify-content</h1>
+
+
+  <div class="example example-justify">
+    <h2>justify-content: flex-start</h2>
+    <div class="example-content flex-start">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-justify">
+    <h2>justify-content: flex-end</h2>
+    <div class="example-content flex-end">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-justify">
+    <h2>justify-content: center</h2>
+    <div class="example-content center">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-justify">
+    <h2>justify-content: space-between</h2>
+    <div class="example-content space-between">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-justify">
+    <h2>justify-content: space-around</h2>
+    <div class="example-content space-around">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr>
+
+<section>
+  <h1>align-items</h1>
+
+
+  <div class="example example-align">
+    <h2>align-items: stretch</h2>
+    <div class="example-content stretch">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">Lorem ipsum dolor sit amet</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align">
+    <h2>align-items: flex-start</h2>
+    <div class="example-content flex-start">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">Lorem ipsum dolor sit amet</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example example-align">
+    <h2>align-items: flex-end</h2>
+    <div class="example-content flex-end">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">Lorem ipsum dolor sit amet</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align">
+    <h2>align-items: center</h2>
+    <div class="example-content center">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">Lorem ipsum dolor sit amet</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align">
+    <h2>align-items: baseline</h2>
+    <div class="example-content baseline">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<section>
+  
+
+
+
+<h1>align-content: propriété quand on a plusieurs lignes ! il faut donc un flex-wrap: wrap, sinon ça sert à rien...</h1>
+
+  <div class="example example-align-content">
+    <h2>align-content: flex-start</h2>
+    <div class="example-content flex-start">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-content">
+    <h2>align-content: flex-end</h2>
+    <div class="example-content flex-end">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-content">
+    <h2>align-content: center</h2>
+    <div class="example-content center">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-content">
+    <h2>align-content: stretch</h2>
+    <div class="example-content stretch">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-content">
+    <h2>align-content: space-between</h2>
+    <div class="example-content space-between">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-content">
+    <h2>align-content: space-around</h2>
+    <div class="example-content space-around">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+<hr>
+<hr>
+
+<h1>5 propriétés sur les enfants (les items)</h1>
+
+<section>
+  
+  <h1>Order</h1>
+
+
+  <div class="example example-order">
+    <h2>order</h2>
+    <p>on peut changer l'odre des items !! il suffit de leur donner la propriété "order"</p>
+    <p>si on veut placer le 3ème bloc avant tous les autres, on lui donne un order : 0 (par exemple)</p>
+    <div class="example-content">
+
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+
+    </div>
+  </div>
+
+  </section>
+<hr>
+
+<section>
+  
+  <h1>Flex grow</h1>
+
+
+  <div class="example example-grow">
+    <h2>flex-grow : 1 seul item autorisé à "grossir" pour occuper le reste de la place</h2>
+    <div class="example-content one-grow">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example example-grow">
+    <h2>flex-grow : 2 items autorisés à "grossir" pour occuper le reste de la place, mais à des proportions différents !</h2>
+    <div class="example-content two-grow">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <h1>Flex shrink</h1>
+
+
+  <div class="example example-shrink">
+    <h2>flex-shrink : 1 item autorisé à rétrécir "plus vite"</h2>
+    <div class="example-content one-shrink">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+  <div class="example example-shrink">
+    <h2>flex-shrink : 2 items autorisé à rétrécir "plus vite" à des rythmes différents</h2>
+    <div class="example-content two-shrink">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+<section>
+  <h1>Flex-basis</h1>
+
+  <div class="example example-basis">
+    <h2>flex-basis en ROW</h2>
+    <div class="example-content flex-basis-row">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-basis">
+    <h2>flex-basis en COLUMN</h2>
+    <div class="example-content flex-basis-column">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<section>
+<h1>align-self : attention à ne pas metre deheight sur les items, sinon stretch marche pas...</h1>
+  <div class="example example-align-self">
+    <h2>align-self : flex-end (en solo)</h2>
+    <div class="example-content align-self-flex-end">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-self">
+    <h2>align-self : center (en solo)</h2>
+    <div class="example-content align-self-center">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-self">
+    <h2>align-self : stretch (en solo)</h2>
+    <div class="example-content align-self-stretch">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example example-align-self">
+    <h2>align-self : baseline (en duo)</h2>
+    <div class="example-content align-self-baseline">
+      <div class="parent">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

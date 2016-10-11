@@ -1,0 +1,138 @@
+@charset "utf-8";
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
+* {
+    box-sizing: border-box;
+}
+
+
+/*grey #a49e9e*/
+
+
+/*blue #2cbcd6*/
+
+
+/*lightBlue #afdefa*/
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+}
+
+.clear {
+    width: 0;
+    height: 0;
+    clear: both;
+}
+
+#logoCode {
+    display: inline-block;
+    margin: 2%;
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+    color: #a49e9e;
+}
+
+nav {
+    text-align: center;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+nav>ul>li>a {
+    display: block;
+    padding: 1em 2em;
+    color: #2cbcd6;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -o-transition: All .5s ease;
+}
+
+nav>ul>li>a:hover {
+    color: white;
+    background-color: #2cbcd6;
+}
+
+nav>ul>li>a:hover+div {
+    /*transform: scaleY(1);*/
+    max-height: 500px;
+}
+
+nav>ul>li:hover .subMenu {
+    /*transform: scaleY(1);*/
+    max-height: 500px;
+}
+
+nav>ul>li:hover>a {
+    color: white;
+    background-color: #2cbcd6;
+}
+
+.paddingSolo {
+    padding: 2em 10%;
+}
+
+.subMenu {
+    overflow: hidden;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #2cbcd6;
+    color: white;
+    padding: 0;
+    /*transform-origin: top;
+    transform: scaleY(0);*/
+    /*Transition*/
+    max-height: 0;
+    -webkit-transition: All .5s ease;
+    -moz-transition: All .5s ease;
+    -o-transition: All .5s ease;
+}
+
+.subMenuPart {
+    display: inline-block;
+    width: 40%;
+    margin-bottom: 2em;
+}
+
+.subMenuPartTitle {
+    display: block;
+    font-weight: normal;
+    color: #afdefa;
+    margin: 1.2em auto;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.subMenuPartTitle:hover {
+    color: white;
+}
+
+.subMenuPart li {
+    margin: 1em 0;
+}
+
+.subMenuPart li>a {
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.subMenuPart li>a:hover {
+    color: #afdefa;
+}
