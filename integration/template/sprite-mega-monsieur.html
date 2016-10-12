@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>mega monsieur</title>
+</head>
+<style type="text/css">
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+    }
+
+    .mega-monsieur {
+        margin: auto;
+        width: 45px;
+        height: 45px;
+        background-image: url("images/megaman7.png");
+        background-repeat: no-repeat;
+        background-position: -162px -180px;
+    }
+
+    @keyframes play {
+        100% {
+            background-position: -162px 0;
+        }
+    }
+
+    .mega-monsieur {
+        animation: play .5s steps(4) infinite;
+        
+    }
+
+</style>
+
+<body>
+    <div class="mega-monsieur"></div>
+</body>
+
+</html>

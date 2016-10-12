@@ -1,0 +1,151 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+* {
+    box-sizing: border-box;
+    outline: 0
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    background-color: #f2f2f4;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    color: #757170;
+    min-width: 240px
+}
+
+header, main {
+    max-width: 80%;
+    margin: auto
+}
+
+h1, h2, h3, h4, nav a {
+    font-family: 'PT Sans Narrow', sans-serif
+}
+
+img {
+    max-width: 100%;
+    height: auto
+}
+
+header {
+    text-align: center
+}
+
+.mobileMenu {
+    font-size: 1em;
+    display: none;
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    top: 1.5em;
+    right: 1.5em;
+    background-color: #31a894;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+main, nav {
+    display: flex
+}
+
+#ouvrir {
+    background-image: url(../images/mobileMenu.svg)
+}
+
+#fermer {
+    background-image: url(../images/mobileMenu_close.svg)
+}
+
+.mobileMenu:hover {
+    background-color: orange
+}
+
+h2, nav {
+    background-color: #31a894
+}
+
+nav {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0 20%;
+    list-style: none
+}
+
+h2, nav a {
+    color: #fff;
+    padding: .8em;
+    font-size: 1.2em
+}
+
+main {
+    flex-flow: row wrap
+}
+
+main p {
+    font-size: .8em;
+    line-height: 1.8
+}
+
+aside, main>article {
+    padding: 1.5em
+}
+
+main>article {
+    max-width: 70%
+}
+
+main>article>a>img {
+    margin-bottom: 1.5em;
+    display: block
+}
+
+aside {
+    max-width: 30%;
+    background-color: #b7dcb1;
+    color: #26472c
+}
+
+h2 {
+    padding: .6em;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400
+}
+
+@media screen and (max-width:800px) {
+    aside, header, main, main>article {
+        max-width: 100%
+    }
+    nav {
+        padding: 0
+    }
+}
+
+@media screen and (max-width:400px) {
+    #navigation:target #fermer, #ouvrir, .mobileMenu {
+        display: block
+    }
+    nav {
+        flex-direction: column
+    }
+    #navigation {
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: all .5s ease-in;
+        -moz-transition: all .5s ease-in;
+        transition: all .5s ease-in
+    }
+    #navigation:target {
+        max-height: 200px
+    }
+    #fermer, #navigation:target #ouvrir {
+        display: none
+    }
+}
