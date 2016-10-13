@@ -46,8 +46,8 @@
 echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' ); ?>
 			</nav>
 	</header>
-<div id="page" class="hfeed site">
+<!-- <div id="page" class="hfeed site">
 
 
 
-	<div id="main" class="site-main">
+	<div id="main" class="site-main"> -->

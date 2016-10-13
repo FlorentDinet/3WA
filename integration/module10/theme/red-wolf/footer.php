@@ -10,16 +10,20 @@
  */
 ?>
 
-		</div><!-- #main -->
+<!--</div> #main -->
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
+		<footer>
+			<p>Proident esse aliquip officia nostrud cillum eiusmod consequat esse.</p>
+			<?php $menuParameters = array(
+						'container'       => false,
+						'echo'            => false,
+						'items_wrap'      => '%3$s',
+						'depth'           => 0,
+					);
 
-			<?php get_sidebar( 'footer' ); ?>
+echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' ); ?>
+<p>2016 - 3WA - Module 10 : Red Wolf</p>
 
-			<div class="site-info">
-				<?php do_action( 'twentyfourteen_credits' ); ?>
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyfourteen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentyfourteen' ), 'WordPress' ); ?></a>
-			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
 
