@@ -25,3 +25,30 @@ mydevice.io
 screen sizes
 
 google speed
+
+350 à 450 jours expérimenté
+
+hébergement :
+OVH pas top mais pas cher
+- petit site > ovh perso
+- site trafic plus important > cloud (on peut moduler la formule sans faire de migration)
+
+best > infomaniak
+
+#reglages wordpress
+
+désactiver les commentaires si pas besoin dans les options
+
+permalinks /%postname%.html
+
+##
+
+## plugin wp
+
+backupBuddy
+gravity forms
+WPML (traduction)
+ACF ajoute des champs dynamiques
+AJAX SEARCH PRO
+
+codex wordpress pour les infos sur les fonctions wp
