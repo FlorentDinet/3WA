@@ -12,6 +12,21 @@ get_header(); ?>
 
 <main>
 
+	<!-- TEST FLEX-SLIDER -->
+	<section>
+		<!-- Place somewhere in the <body> of your page -->
+		<div class="flexslider">
+			<ul class="slider slides shadow">
+				<li><img src="<?php the_field('slide1'); ?>" /></li>
+				<li><img src="<?php the_field('slide2'); ?>" /></li>
+			</ul>
+		</div>
+	</section>
+	<!-- TEST FLEX-SLIDER -->
+
+<?php /*
+
+<!-- CONTENU PRINCIPAL -->
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
@@ -23,19 +38,83 @@ get_header(); ?>
 				?>
 			</section>
 			<?php	endwhile;	?>
+<!-- CONTENU PRINCIPAL -->
+
+
+<!-- REMONTEE ARTICLES -->
 <section>
 	<h2>Découvrez <span>nos motos</span></h2>
 	<div class="team">
-
-	<?php wp_reset_query(); ?>
-	<?php query_posts('category_name=product&posts_per_page=4&order=ASC'); ?>
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-		<article class="product">
-  <?php the_content(); ?>
-		</article>
-	<?php endwhile; endif; ?>
+	<?php
+	$my_query = new WP_Query( 'cat=3&order=ASC' );
+	if ( $my_query->have_posts() ) {
+		while ( $my_query->have_posts() ) {
+			$my_query->the_post();
+			?><article class="product shadow"><?php
+			the_content();
+			?></article><?php
+		}
+	}
+	wp_reset_postdata();
+	?>
 	</div>
 </section>
+<!-- REMONTEE ARTICLES -->
+
+*/ ?>
+
+
+<!-- REMONTEE PRODUIT -->
+<section>
+	<h2>Découvrez <span>nos motos</span></h2>
+	<div class="team">
+<?php
+		$args = array(
+			'post_type' => 'product',
+			'posts_per_page' => 4
+			);
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) {
+			while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				<article class="product shadow">
+					<?php woocommerce_template_loop_product_thumbnail(); ?>
+					<?php woocommerce_template_loop_product_title(); ?>
+					<?php woocommerce_template_single_excerpt(); ?>
+					<?php woocommerce_template_single_price(); ?>
+					<?php woocommerce_template_single_rating(); ?>
+					<?php woocommerce_template_loop_add_to_cart(); ?>
+				</article>
+			<?php	endwhile;
+		} else {
+			echo __( 'No products found' );
+		}
+		wp_reset_postdata();
+	?>
+</div>
+</section>
+
+
+<!-- REMONTEE PRODUIT -->
+
+
+
+
+<!-- DETAILS -->
+<section class="detail">
+	<h2>Pour nous connaître <span>plus en détail</span></h2>
+	<!-- CONTENU ACF -->
+		<?php
+			// Contrôler si ACF est actif
+			if ( !function_exists('get_field') ) return;
+		?>
+
+		<?php the_field('detail_text'); ?>
+	<?php /*	<img src="<?php the_field('detail_img'); ?>" /> */ ?>
+		<?php the_field('detail_video'); ?>
+
+	<!-- CONTENU ACF -->
+</section>
+<!-- DETAILS -->
 </main>
 
 <?php

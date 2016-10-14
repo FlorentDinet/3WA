@@ -25,10 +25,31 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/flexslider.css" type="text/css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.lettering-0.6.1.min.js"></script>
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
+
+	<!-- Place in the <head>, after the three links -->
+	<script type="text/javascript" charset="utf-8">
+	  $(window).load(function() {
+	    $('.flexslider').flexslider({
+				slideshow: true,
+				directionNav: false
+			});
+	  });
+	</script>
+	<script>
+      $(document).ready(function() {
+        $(".woocommerce-Price-amount").lettering();
+      });
+</script>
+
+
 	<?php wp_head(); ?>
 </head>
 
@@ -44,6 +65,8 @@
 					);
 
 echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' ); ?>
+	<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i><?php echo WC()->cart->get_cart_contents_count(); ?>
+<?php /* - <?php echo WC()->cart->get_cart_total(); ?> */?></a>
 			</nav>
 	</header>
 <!-- <div id="page" class="hfeed site">

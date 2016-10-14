@@ -20,9 +20,12 @@ http://opensource.audith.org/uniform
 
 effektiv site de recrutement
 
+https://www.smashingmagazine.com/2012/11/complete-guide-custom-post-types/
 
 mydevice.io
 screen sizes
+
+http://responsivetest.net/ <- test responsive d'un site hébérgé dans un serveur (lien à fournir au client)
 
 google speed
 
@@ -49,6 +52,4 @@ backupBuddy
 gravity forms
 WPML (traduction)
 ACF ajoute des champs dynamiques
-AJAX SEARCH PRO
-
-codex wordpress pour les infos sur les fonctions wp
+AJAX SEARCH PRO codex wordpress pour les infos sur les fonctions wp
