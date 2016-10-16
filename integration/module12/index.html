@@ -6,16 +6,17 @@
     <title>Portfolio de John Doe</title>
     <meta name="description" content="Portfolio de John Doe" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" />
-    <link rel="stylesheet" href="css/styles.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
 </head>
+
 <body>
     <header>
-      <div id="logo">
-        <img src="images/logo.svg" width="50"/>
-        <span>John Doe</span>
-      </div>
+        <div id="logo">
+            <img src="images/logo.svg" width="50" />
+            <span>John Doe</span>
+        </div>
         <nav>
             <a href="#" title="Accueil"><i class="fa fa-home" aria-hidden="true"></i><span>Accueil</span></a>
             <a href="#" title="Réalisations"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Réalisations</span></a>
@@ -23,62 +24,80 @@
         </nav>
     </header>
     <main>
-        <section class="intro">
-            <h1>Bonjour et bienvenue sur mon portfolio</h1>
-            <p>Qui ut exercitation mollit enim consectetur veniam laborum cillum. Irure non incididunt commodo officia incididunt ullamco amet qui minim. Ad sit ad nisi do do ad qui fugiat ad anim ut amet nisi Lorem. Ad aute mollit duis nulla labore elit
-                aliquip officia cillum fugiat aute fugiat exercitation duis commodo ullamco sint.</p>
-            <button>Découvrez-moi</button>
-        </section>
+        <div class="intro">
+            <section>
+                <h1>Bonjour et bienvenue sur mon portfolio</h1>
+                <p>Qui ut exercitation mollit enim consectetur veniam laborum cillum. Irure non incididunt commodo officia incididunt ullamco amet qui minim. Ad sit ad nisi do do ad qui fugiat ad anim ut amet nisi Lorem. Ad aute mollit duis nulla labore
+                    elit aliquip officia cillum fugiat aute fugiat exercitation duis commodo ullamco sint. Ad sit ad nisi do do ad qui fugiat ad anim ut amet nisi Lorem. Ad aute mollit duis nulla labore elit aliquip officia cillum fugiat aute fugiat.</p>
+                <button>Découvrez-moi !</button>
+            </section>
+        </div>
         <section>
             <h2>Mes compétences</h2>
             <p>HTML</p>
             <p>JS</p>
             <p>CSS</p>
-            <canvas></canvas>
+            <canvas id="mon_canvas" width="350" height="350">
+  Votre navigateur ne supporte pas le canvas, dommage...
+</canvas>
         </section>
         <section>
             <h2>Mes réalisations</h2>
-            <div class="domain">
-                <div class="picto">cofee</div>
-                <h3>On discute</h3>
-                <p>Fugiat do nisi dolore tempor aliquip culpa amet duis elit dolore. Ut voluptate dolor nostrud culpa aute laboris ullamco ipsum aute.</p>
-            </div>
-            <div class="domain">
-                <div class="picto">cofee</div>
-                <h3>On tente</h3>
-                <p>Fugiat do nisi dolore tempor aliquip culpa amet duis elit dolore. Ut voluptate dolor nostrud culpa aute laboris ullamco ipsum aute.</p>
-            </div>
-            <div class="domain">
-                <div class="picto">cofee</div>
-                <h3>On code</h3>
-                <p>Fugiat do nisi dolore tempor aliquip culpa amet duis elit dolore. Ut voluptate dolor nostrud culpa aute laboris ullamco ipsum aute.</p>
+            <div class="domains">
+                <div class="domain">
+                    <i class="fa fa-coffee" aria-hidden="true"></i>
+                    <h3>On discute</h3>
+                    <p>Fugiat do nisi dolore tempor aliquip culpa amet duis elit dolore. Ut voluptate dolor nostrud culpa aute laboris ullamco ipsum aute.</p>
+                </div>
+                <div class="domain">
+                    <i class="fa fa-flask" aria-hidden="true"></i>
+                    <h3>On tente</h3>
+                    <p>Fugiat do nisi dolore tempor aliquip culpa amet duis elit dolore. Ut voluptate dolor nostrud culpa aute laboris ullamco ipsum aute.</p>
+                </div>
+                <div class="domain">
+                    <i class="fa fa-code" aria-hidden="true"></i>
+                    <h3>On code</h3>
+                    <p>Fugiat do nisi dolore tempor aliquip culpa amet duis elit dolore. Ut voluptate dolor nostrud culpa aute laboris ullamco ipsum aute.</p>
+                </div>
             </div>
         </section>
         <section>
             <h2>Quelques exemples de réalisations</h2>
             <div class="realisation">
                 <h4>Orange juice :</h4>
-                <p>Laboris ut ipsum anim nulla ex esse ut proident non laboris quis aliqua. Tempor labore magna ad do consequat aliqua enim eu Lorem fugiat deserunt sunt eiusmod. Et consectetur pariatur aliqua pariatur occaecat minim dolore est. Eu magna
-                    nisi aliqua ut ut enim voluptate esse. Sit consectetur labore incididunt proident non culpa magna proident voluptate amet consectetur enim reprehenderit sint ut. Adipisicing duis exercitation nisi amet ad nulla ullamco anim deserunt
-                    eu. Culpa sit voluptate aute pariatur eiusmod occaecat eu ex esse commodo dolor tempor nostrud ipsum Lorem mollit nisi. Incididunt tempor anim consequat consequat ad ut ad Lorem occaecat proident cillum Lorem fugiat velit sit dolore.</p>
-                <img src="images/real/1.png" alt="Orange Juice" />
-                <a href="#" title="En savoir plus">En savoir plus</a>
+                <img src="images/real/1.png" alt="Orange Juice" class="right" />
+                <p>Exercitation in duis deserunt enim fugiat occaecat incididunt ipsum incididunt labore deserunt. Lorem cillum irure elit ea mollit commodo cupidatat aute sint nulla fugiat in. Aliquip nisi cupidatat ea excepteur irure cupidatat ad id ex
+                    sit enim nulla. Sunt commodo ea pariatur qui laborum occaecat culpa veniam sint Lorem nisi incididunt aliqua veniam.</p>
+                <p>Duis cillum laborum ipsum reprehenderit in quis nisi elit culpa aliqua velit. Laboris magna ullamco cillum exercitation enim nisi labore ad adipisicing nostrud. Mollit eu sint aute aliquip voluptate quis cupidatat incididunt nulla quis
+                    amet. Do pariatur in commodo non ea velit et cillum. Do aute ipsum nulla consequat occaecat officia occaecat qui adipisicing tempor. Id ad occaecat nulla dolore aliquip cillum voluptate. Incididunt nostrud non laborum laboris eiusmod
+                    proident deserunt tempor. Et labore laborum nulla sunt sunt elit consectetur sit laborum laborum ipsum cupidatat sit ullamco ullamco.</p>
+                <p>Reprehenderit irure ipsum ex voluptate et enim deserunt labore non proident consequat. Occaecat cupidatat est elit laborum culpa sit sunt quis. Aliqua fugiat ipsum nisi ad fugiat aliquip adipisicing voluptate ea exercitation quis nulla
+                    fugiat pariatur cupidatat.</p>
+                <a href="#" title="En savoir plus" class="knowMore">En savoir plus <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
             </div>
             <div class="realisation">
                 <h4>Time Past :</h4>
-                <p>Laboris ut ipsum anim nulla ex esse ut proident non laboris quis aliqua. Tempor labore magna ad do consequat aliqua enim eu Lorem fugiat deserunt sunt eiusmod. Et consectetur pariatur aliqua pariatur occaecat minim dolore est. Eu magna
-                    nisi aliqua ut ut enim voluptate esse. Sit consectetur labore incididunt proident non culpa magna proident voluptate amet consectetur enim reprehenderit sint ut. Adipisicing duis exercitation nisi amet ad nulla ullamco anim deserunt
-                    eu. Culpa sit voluptate aute pariatur eiusmod occaecat eu ex esse commodo dolor tempor nostrud ipsum Lorem mollit nisi. Incididunt tempor anim consequat consequat ad ut ad Lorem occaecat proident cillum Lorem fugiat velit sit dolore.</p>
-                <img src="images/real/1.png" alt="Time Past" />
-                <a href="#" title="En savoir plus">En savoir plus</a>
+                <img src="images/real/2.png" alt="Time Past" class="left" />
+                <p>Exercitation in duis deserunt enim fugiat occaecat incididunt ipsum incididunt labore deserunt. Lorem cillum irure elit ea mollit commodo cupidatat aute sint nulla fugiat in. Aliquip nisi cupidatat ea excepteur irure cupidatat ad id ex
+                    sit enim nulla. Sunt commodo ea pariatur qui laborum occaecat culpa veniam sint Lorem nisi incididunt aliqua veniam.</p>
+                <p>Duis cillum laborum ipsum reprehenderit in quis nisi elit culpa aliqua velit. Laboris magna ullamco cillum exercitation enim nisi labore ad adipisicing nostrud. Mollit eu sint aute aliquip voluptate quis cupidatat incididunt nulla quis
+                    amet. Do pariatur in commodo non ea velit et cillum. Do aute ipsum nulla consequat occaecat officia occaecat qui adipisicing tempor. Id ad occaecat nulla dolore aliquip cillum voluptate. Incididunt nostrud non laborum laboris eiusmod
+                    proident deserunt tempor. Et labore laborum nulla sunt sunt elit consectetur sit laborum laborum ipsum cupidatat sit ullamco ullamco.</p>
+                <p>Reprehenderit irure ipsum ex voluptate et enim deserunt labore non proident consequat. Occaecat cupidatat est elit laborum culpa sit sunt quis. Aliqua fugiat ipsum nisi ad fugiat aliquip adipisicing voluptate ea exercitation quis nulla
+                    fugiat pariatur cupidatat.</p>
+                <a href="#" title="En savoir plus" class="knowMore">En savoir plus <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
             </div>
             <div class="realisation">
                 <h4>Aqua Plant :</h4>
-                <p>Laboris ut ipsum anim nulla ex esse ut proident non laboris quis aliqua. Tempor labore magna ad do consequat aliqua enim eu Lorem fugiat deserunt sunt eiusmod. Et consectetur pariatur aliqua pariatur occaecat minim dolore est. Eu magna
-                    nisi aliqua ut ut enim voluptate esse. Sit consectetur labore incididunt proident non culpa magna proident voluptate amet consectetur enim reprehenderit sint ut. Adipisicing duis exercitation nisi amet ad nulla ullamco anim deserunt
-                    eu. Culpa sit voluptate aute pariatur eiusmod occaecat eu ex esse commodo dolor tempor nostrud ipsum Lorem mollit nisi. Incididunt tempor anim consequat consequat ad ut ad Lorem occaecat proident cillum Lorem fugiat velit sit dolore.</p>
-                <img src="images/real/1.png" alt="Aqua Plant" />
-                <a href="#" title="En savoir plus">En savoir plus</a>
+                <img src="images/real/3.png" alt="Aqua Plant" class="right" />
+                <p>Exercitation in duis deserunt enim fugiat occaecat incididunt ipsum incididunt labore deserunt. Lorem cillum irure elit ea mollit commodo cupidatat aute sint nulla fugiat in. Aliquip nisi cupidatat ea excepteur irure cupidatat ad id ex
+                    sit enim nulla. Sunt commodo ea pariatur qui laborum occaecat culpa veniam sint Lorem nisi incididunt aliqua veniam.</p>
+                <p>Duis cillum laborum ipsum reprehenderit in quis nisi elit culpa aliqua velit. Laboris magna ullamco cillum exercitation enim nisi labore ad adipisicing nostrud. Mollit eu sint aute aliquip voluptate quis cupidatat incididunt nulla quis
+                    amet. Do pariatur in commodo non ea velit et cillum. Do aute ipsum nulla consequat occaecat officia occaecat qui adipisicing tempor. Id ad occaecat nulla dolore aliquip cillum voluptate. Incididunt nostrud non laborum laboris eiusmod
+                    proident deserunt tempor. Et labore laborum nulla sunt sunt elit consectetur sit laborum laborum ipsum cupidatat sit ullamco ullamco.</p>
+                <p>Reprehenderit irure ipsum ex voluptate et enim deserunt labore non proident consequat. Occaecat cupidatat est elit laborum culpa sit sunt quis. Aliqua fugiat ipsum nisi ad fugiat aliquip adipisicing voluptate ea exercitation quis nulla
+                    fugiat pariatur cupidatat.</p>
+                <a href="#" title="En savoir plus" class="knowMore">En savoir plus <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
             </div>
         </section>
         <footer>
@@ -86,10 +105,10 @@
             <p>Et cupidatat deserunt magna excepteur adipisicing nostrud sunt officia minim pariatur et consequat irure labore quis. Nulla aliquip veniam irure aliquip sint excepteur occaecat dolor consectetur. Consectetur velit labore enim dolor sit Lorem
                 occaecat aliqua esse qui ea non fugiat tempor nulla duis magna. Sint eiusmod Lorem reprehenderit incididunt ut nostrud irure mollit consectetur proident veniam veniam non voluptate elit eu adipisicing.</p>
             <form>
-              <input type="text" id="inputForname" placeholder="Votre prénom">
-              <input type="text" id="inputEmail" placeholder="Votre mail">
-              <input type="textfield" id="inputMessage" placeholder="Votre message">
-              <button type="submit">Envoyer</button>
+                <input type="text" id="inputForname" placeholder="Votre prénom">
+                <input type="text" id="inputEmail" placeholder="Votre mail">
+                <input type="text" id="inputMessage" placeholder="Votre message">
+                <!-- <button type="submit">Envoyer</button> -->
             </form>
         </footer>
     </main>
