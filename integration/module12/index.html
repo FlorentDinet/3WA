@@ -34,10 +34,7 @@
         </div>
         <section>
             <h2>Mes compétences</h2>
-            <p>HTML</p>
-            <p>JS</p>
-            <p>CSS</p>
-            <canvas id="mon_canvas" width="350" height="350">
+            <canvas id="mon_canvas" width="540" height="400">
   Votre navigateur ne supporte pas le canvas, dommage...
 </canvas>
         </section>
@@ -112,6 +109,43 @@
             </form>
         </footer>
     </main>
+    <script type="text/javascript">
+        var c = document.getElementById("mon_canvas");
+        var ctx = c.getContext("2d");
+        // on dessine un triangle
+        ctx.beginPath(); // Début du chemin
+        ctx.moveTo(270, 50);
+        ctx.lineTo(470, 400);
+        ctx.lineTo(70, 400);
+        ctx.closePath(); // Fermeture du chemin
+        ctx.fillStyle = "#6F9854"; // Définition de la couleur de remplissage
+        ctx.fill(); // Remplissage du dernier chemin tracé
+
+        // on trace le texte 'HTML'
+        var text1 = 'HTML';
+        ctx.font = "1.3rem Bree Serif, serif";
+        var textPxLength = ctx.measureText(text1);
+        ctx.textAlign = "left";
+        ctx.textBaseline = "top";
+        ctx.fillStyle = "#949494";
+        ctx.fillText(text1, 270-(textPxLength.width/2), 0);
+
+        // on trace le texte 'CSS'
+        var text2 = 'CSS';
+        ctx.font = "1.3rem Bree Serif, serif";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "bottom";
+        ctx.fillStyle = "#949494";
+        ctx.fillText(text2, 500, 400);
+
+        // on trace le texte 'CSS'
+        var text3 = 'JS';
+        ctx.font = "1.3rem Bree Serif, serif";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "bottom";
+        ctx.fillStyle = "#949494";
+        ctx.fillText(text3, 0, 400);
+    </script>
 </body>
 
 </html>

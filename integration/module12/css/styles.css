@@ -167,6 +167,12 @@ h4 {
     color: #ea1a62;
 }
 
+canvas {
+  display: block;
+  margin: auto;
+  margin-top: 4rem;
+}
+
 .domains {
     display: flex;
     flex-flow: row wrap;
