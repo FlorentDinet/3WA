@@ -41,6 +41,7 @@ best > infomaniak
 #reglages wordpress
 
 désactiver les commentaires si pas besoin dans les options
+vider le fichier comments.php
 
 permalinks /%postname%.html
 
@@ -53,3 +54,6 @@ gravity forms
 WPML (traduction)
 ACF ajoute des champs dynamiques
 AJAX SEARCH PRO codex wordpress pour les infos sur les fonctions wp
+
+commenter la fin des balises car on ne sait pas où elles commencent dans les multiples fichiers .php
+par exemple </div> <!-- div content !-->
