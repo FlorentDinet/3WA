@@ -106,10 +106,14 @@ header section {
     opacity: 0.6;
 }
 
+.wrapper {
+  width: 100%;
+}
+
 nav {
     margin: 0 1.5rem;
-    width: 100%;
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 
@@ -146,16 +150,15 @@ nav a {
 .tea-cat {
     background-color: white;
     padding: 1rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
 }
 
-.tea-cat h2 {
-    width: 100%;
+.categories {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
-.tea-cat > a {
+.category {
     padding: 1rem 0;
     flex: 1;
     min-width: 130px;
@@ -165,7 +168,15 @@ nav a {
     text-align: center;
 }
 
-.tea-cat > a > img {
+.categories:hover .category {
+  opacity: .5;
+}
+
+.categories:hover .category:hover {
+  opacity: 1;
+}
+
+.category img {
     display: block;
     margin: auto;
 }
@@ -238,6 +249,7 @@ nav a {
     background-position: 0.8rem;
 }
 /* ########## PRODUCTS SHOWROOM ########## */
+
 /* ########## FOOTER ########## */
 footer {
     background-color: @cot_green;
@@ -296,6 +308,7 @@ footer ul {
     line-height: 2;
 }
 /* ########## FOOTER ########## */
+
 @media screen and (max-width: 960px) {
     section {
         max-width: inherit;
@@ -303,7 +316,6 @@ footer ul {
     }
 }
 @media screen and (max-width: 800px) {
-
     header section {
         margin-left: 1.5rem;
         margin-right: 1.5rem;
@@ -321,16 +333,27 @@ footer ul {
         justify-content: center;
     }
 
-    .tea-cat {
-        justify-content: center;
-    }
-
-    .tea-cat > a {
-        //flex: 0;
-        min-width: 100%;
+    .categories {
+        flex-flow: column;
+        align-items: center;
     }
 }
+@media screen and (max-width: 650px) {
+  .wrapper {
+    overflow: hidden;
+    height: 0;
+  }
+    nav {
+        flex-flow: column;
+    }
+  }
 @media screen and (max-width: 550px) {
+    .featured-caption {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
     .product,
     .product:first-child,
     .product:last-child {
