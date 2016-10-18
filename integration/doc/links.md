@@ -58,4 +58,17 @@ AJAX SEARCH PRO codex wordpress pour les infos sur les fonctions wp
 commenter la fin des balises car on ne sait pas où elles commencent dans les multiples fichiers .php
 par exemple </div> <!-- div content !-->
 
-mapbox 
+mapbox
+
+POUR DEBUG WP
+
+wp_config.php
+
+define('WP_DEBUG' , true);
+
+ATTENTION FAILLE DE SECURITE !!!!!
+
+enlever :
+
+wp_confige_sample.php
+licence.txt
