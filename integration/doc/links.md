@@ -72,3 +72,6 @@ enlever :
 
 wp_confige_sample.php
 licence.txt
+
+conflit de marge de h1 et p dans <div>
+mettre overflow:hidden; sur la div

@@ -14,6 +14,10 @@
     outline: none;
 }
 
+html,body  {
+  min-width: 340px;
+}
+
 body {
     background-color: @cot_lightGrey;
     font-family: 'Open Sans', sans-serif;
@@ -45,6 +49,16 @@ h4 {
 
 a {
     text-decoration: none;
+}
+
+header a, footer a {
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+header a:hover, footer a:hover {
+  opacity: .5;
 }
 
 .shadow {
@@ -106,8 +120,8 @@ header section {
     opacity: 0.6;
 }
 
-.wrapper {
-  width: 100%;
+#wrapper {
+    width: 100%;
 }
 
 nav {
@@ -118,11 +132,51 @@ nav {
 }
 
 nav a {
+  position: relative;
     text-align: center;
     margin: 2rem 0.5rem;
     color: white;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    padding: 8px 0;
+}
+
+nav a:after{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: white;
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  transform: translateY(10px);
+}
+
+nav a:hover:after,
+nav a:focus:after {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+.mobileMenu {
+    display: none;
+    width: 2.5em;
+    height: 2.5em;
+    background-color: white;
+    color: @cot_green;
+    border-radius: 50%;
+}
+
+.mobileMenu i {
+    font-size: 1.5rem;
 }
 /* ########## HEADER ########## */
 /* ########## FEATURED ########## */
@@ -153,9 +207,9 @@ nav a {
 }
 
 .categories {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 .category {
@@ -166,14 +220,17 @@ nav a {
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
 }
 
 .categories:hover .category {
-  opacity: .5;
+    opacity: 0.5;
 }
 
 .categories:hover .category:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .category img {
@@ -188,11 +245,24 @@ nav a {
     justify-content: space-between;
 }
 
+// HOVERS
+
+.products:hover .product {
+  opacity: .5;
+}
+
+.products:hover .product:hover {
+  opacity: 1;
+}
+
 .product {
     background-color: white;
     flex: 1;
     min-width: 210px;
     margin: 2rem 1rem;
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
 }
 
 .product:first-child {
@@ -249,7 +319,6 @@ nav a {
     background-position: 0.8rem;
 }
 /* ########## PRODUCTS SHOWROOM ########## */
-
 /* ########## FOOTER ########## */
 footer {
     background-color: @cot_green;
@@ -308,7 +377,6 @@ footer ul {
     line-height: 2;
 }
 /* ########## FOOTER ########## */
-
 @media screen and (max-width: 960px) {
     section {
         max-width: inherit;
@@ -339,19 +407,91 @@ footer ul {
     }
 }
 @media screen and (max-width: 650px) {
-  .wrapper {
-    overflow: hidden;
-    height: 0;
-  }
+    header section {
+        margin: 0;
+    }
+
+    #cart,
+    #logo, .mobileMenu {
+       flex-shrink: 1;
+        margin: .5rem;
+    }
+
+    #logo {
+      flex: 1;
+      margin-left: 1rem;
+    }
+
+    .mobileMenu {
+      margin-right:1rem;
+    }
+
+    .banner {
+        display: none;
+    }
+
+    #cart i {
+        font-size: 1.5rem;
+        color: @cot_green;
+        opacity: 1;
+    }
+
+    #cart {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+    #cart p {
+        display: none;
+    }
+
+    #wrapper {
+        overflow: hidden;
+    }
+
+    #ouvrir,
+    #wrapper:target #fermer,
+    .mobileMenu {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #wrapper {
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: all 0.5s ease-in;
+        -moz-transition: all 0.5s ease-in;
+        transition: all 0.5s ease-in;
+    }
+
+    #wrapper:target {
+        padding-bottom: 2rem;
+        max-height: 200px;
+    }
+
+    #fermer,
+    #wrapper:target #ouvrir {
+        display: none;
+    }
+
     nav {
         flex-flow: column;
     }
-  }
+
+    nav a {
+        margin: 0.5rem;
+    }
+}
 @media screen and (max-width: 550px) {
     .featured-caption {
         position: relative;
         top: auto;
         left: auto;
+        overflow: hidden;
     }
 
     .product,
