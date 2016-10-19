@@ -75,3 +75,5 @@ licence.txt
 
 conflit de marge de h1 et p dans <div>
 mettre overflow:hidden; sur la div
+
+get_stylesheet_directory_uri(); pour avoir le dossier du theme quand on est dans un theme enfant
