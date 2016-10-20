@@ -68,26 +68,40 @@ get_header(); ?>
 	</section>
 <!-- REMONTEE CATÉGORIES DE THÉ -->
 
-<!-- REMONTEE DE PRODUITS FEATURED -->
+<!-- REMONTEE DE PRODUITS -->
 <section class="products">
 
+ <!-- LE DERNIER PRODUIT QUI N'EST PAS FEATURED -->
 <?php
 		$args = array(
 			'post_type' => 'product',
-			'posts_per_page' => 4
+			'orderby' => 'date',
+			'posts_per_page' => 1,
+			'meta_query' => array(
+						array(
+							'key'     => '_featured',
+							'value'   => 'no',
+						),
+					),
 			);
+
 		$loop = new WP_Query( $args );
 
 		if ( $loop->have_posts() ) {
 			while ( $loop->have_posts() ) : $loop->the_post();
 				$product = get_product(get_the_ID()); ?>
-				<article class="product hot-new shadow">
 
-						<h2>Nos nouveautés</h2>
+				<article class="product hot-new shadow woocommerce">
+					<h2>Nos nouveautés</h2>
+					<a href="<?php the_permalink();?>">
 					<?php the_post_thumbnail(); ?>
 					<div class="product-title"><?php the_title(); ?></div>
-					<div class="description"><?php the_excerpt(); ?></div>
+					</a>
+					<div class="product-description"><?php the_excerpt(); ?></div>
 					<div><?php echo $product->get_price_html(); ?></div>
+					<?php echo $product->get_rating_html(); ?><br />
+					<?php woocommerce_template_loop_add_to_cart(); ?>
+
 
 				</article>
 			<?php	endwhile;
@@ -95,44 +109,103 @@ get_header(); ?>
 			echo __( 'No products found' );
 		}
 		wp_reset_postdata();
-	?>
+?>
+<!-- LE DERNIER PRODUIT QUI N'EST PAS FEATURED -->
 
-</section>
-<!-- REMONTEE DE PRODUITS FEATURED -->
-
-<!-- REMONTEE PRODUIT -->
-<section>
-	<h2>Découvrez <span>nos motos</span></h2>
-	<div class="team">
+ <!-- LE BEST SELLER NON FEATURES -->
 <?php
 		$args = array(
 			'post_type' => 'product',
-			'posts_per_page' => 4
+			'posts_per_page' => 1,
+			'meta_query' => array(
+						array(
+							'key'     => 'total_sales',
+							'orderby' => 'meta_value_num',
+						),
+						array(
+							'key'     => '_featured',
+							'value'   => 'no',
+						),
+					),
 			);
+
 		$loop = new WP_Query( $args );
+
 		if ( $loop->have_posts() ) {
-			while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<article class="product shadow">
-					<?php woocommerce_template_loop_product_thumbnail(); ?>
-					<?php woocommerce_template_loop_product_title(); ?>
-					<?php woocommerce_template_single_excerpt(); ?>
-					<?php woocommerce_template_single_price(); ?>
-					<?php woocommerce_template_single_rating(); ?>
+			while ( $loop->have_posts() ) : $loop->the_post();
+				$product = get_product(get_the_ID()); ?>
+
+				<article class="product best-sellers shadow woocommerce">
+					<h2>Notre best-seller</h2>
+					<a href="<?php the_permalink();?>">
+					<?php the_post_thumbnail(); ?>
+					<div class="product-title"><?php the_title(); ?></div>
+					</a>
+					<div class="product-description"><?php the_excerpt(); ?></div>
+					<div><?php echo $product->get_price_html(); ?></div>
+					<?php echo $product->get_rating_html(); ?><br />
 					<?php woocommerce_template_loop_add_to_cart(); ?>
+
+
 				</article>
 			<?php	endwhile;
 		} else {
 			echo __( 'No products found' );
 		}
 		wp_reset_postdata();
-	?>
-</div>
+?>
+<!-- LE BEST SELLER -->
+
+<!-- DERNIER PRODUIT FEATURED -->
+<?php
+$args = array(
+    'post_type' => 'product',
+    'meta_key' => '_featured',
+    'meta_value' => 'yes',
+		'orderby' => 'date',
+    'posts_per_page' => 1
+);
+
+$featured_query = new WP_Query( $args );
+
+if ($featured_query->have_posts()) :
+
+    while ($featured_query->have_posts()) :
+
+        $featured_query->the_post();
+
+        $product = get_product( $featured_query->post->ID );?>
+
+				<article class="product our-favorite shadow woocommerce">
+					<h2>Notre coup de coeur</h2>
+					<a href="<?php the_permalink();?>">
+					<?php the_post_thumbnail(); ?>
+					<div class="product-title"><?php the_title(); ?></div>
+					</a>
+					<div class="product-description"><?php the_excerpt(); ?></div>
+					<div><?php echo $product->get_price_html(); ?></div>
+					<?php echo $product->get_rating_html(); ?><br />
+					<?php woocommerce_template_loop_add_to_cart(); ?>
+
+
+				</article>
+
+  <?php  endwhile;
+
+endif;
+
+wp_reset_query(); // Remember to reset
+?>
+
 </section>
+<!-- DERNIER PRODUIT FEATURED -->
+<!-- REMONTEE DE PRODUITS -->
 
 
-<!-- REMONTEE PRODUIT -->
 
 
 </main><!-- .site-main -->
+<div>
+
 
 <?php get_footer(); ?>

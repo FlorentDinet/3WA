@@ -257,6 +257,7 @@ nav a:focus:after {
 
 .products:hover .product:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .product {
@@ -264,9 +265,16 @@ nav a:focus:after {
     flex: 1;
     min-width: 210px;
     margin: 2rem 1rem;
+    padding-bottom: 1.5rem;
+    color: @cot_grey;
+    text-align: center;
     -webkit-transition: all 0.5s ease-in;
     -moz-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in;
+}
+
+.product a {
+  color: @cot_grey;
 }
 
 .product:first-child {
@@ -277,32 +285,61 @@ nav a:focus:after {
     margin-right: 0;
 }
 
-.product > a {
-    color: @cot_grey;
-    text-align: center;
+.product h2 {
+  color: white;
+  padding: 0.6rem 0 0.6rem 2.5rem;
+  text-align: left;
 }
 
-.product > a > img {
+.product img {
     max-width: 80%;
     margin: 1rem auto;
     display: block;
 }
 
-.product h2 {
-    color: white;
-    padding: 0.6rem 0 0.6rem 2.5rem;
-    text-align: left;
-}
-
 .product-title {
     font-weight: bold;
     font-size: 1.1rem;
-    padding-bottom: 1.5rem;
 }
 
-.description {
+.product-description {
     font-size: 0.8rem;
-    padding-bottom: 1.5rem;
+}
+
+.product woocommerce-Price-amount {
+  text-decoration: none;
+}
+
+.product del {
+  font-size: .8rem;
+  color: lightgrey;
+}
+
+.product ins {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: @cot_green;
+}
+
+.product.woocommerce .product_type_simple, .product.woocommerce .added_to_cart {
+  color: white;
+  background-color: @cot_grey;
+	text-decoration: none;
+	padding: .8rem;
+	display: inline-block;
+	margin: 0 .2rem;
+  line-height: 1;
+  border-radius: 3px;
+}
+
+.product.woocommerce .added_to_cart:hover {
+  color: @cot_grey;
+  background-color: lightgrey;
+}
+
+.product.woocommerce .add_to_cart_button {
+  color: white;
+  background-color: @cot_green;
 }
 
 .hot-new h2 {
@@ -517,4 +554,12 @@ footer ul {
     .features {
         padding: 1rem;
     }
+}
+
+// WOOCOMMERCE
+
+.product.woocommerce .star-rating {
+  float: none;
+  display: inline-block;
+  margin: 1rem auto;
 }
