@@ -104,6 +104,8 @@ h2 span {
     color: #482637;
     text-align: center;
     min-width: 20%;
+    display: flex;
+    flex-flow: column;
 }
 
 .product:first-child {
@@ -112,6 +114,10 @@ h2 span {
 
 .product:last-child {
     margin-right: 0;
+}
+
+.product div[itemprop="offers"] {
+    margin-top: auto;
 }
 
 h3 {

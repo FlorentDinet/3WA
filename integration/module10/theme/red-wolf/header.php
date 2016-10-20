@@ -46,8 +46,19 @@
 	<script>
       $(document).ready(function() {
         $(".woocommerce-Price-amount").lettering();
-      });
-</script>
+
+
+    var elements = document.getElementsByClassName('add_to_cart_button');
+        i = elements.length;
+
+    	while(i--) {
+        	elements[i].innerHTML = "Ajouter au panier";
+    	}
+
+
+		});
+	</script>
+
 
 
 	<?php wp_head(); ?>

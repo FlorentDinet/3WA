@@ -17,8 +17,31 @@ get_header(); ?>
 		<!-- Place somewhere in the <body> of your page -->
 		<div class="flexslider">
 			<ul class="slider slides shadow">
-				<li><img src="<?php the_field('slide1'); ?>" /></li>
-				<li><img src="<?php the_field('slide2'); ?>" /></li>
+				<?php
+
+				// check if the repeater field has rows of data
+				if( have_rows('slider') ):
+
+				 	// loop through the rows of data
+				    while ( have_rows('slider') ) : the_row();?>
+
+				        // display a sub field value
+
+								<li><img src="<?php the_sub_field('slide'); ?>" /></li>
+
+								<?php
+				    endwhile;
+
+				else :
+
+				    // no rows found
+
+				endif;
+
+				?>
+
+
+
 			</ul>
 		</div>
 	</section>
@@ -80,10 +103,22 @@ get_header(); ?>
 					<?php woocommerce_template_loop_product_thumbnail(); ?>
 					<?php woocommerce_template_loop_product_title(); ?>
 					<?php woocommerce_template_single_excerpt(); ?>
-					<?php woocommerce_template_single_price(); ?>
-					<?php woocommerce_template_single_rating(); ?>
-					<?php woocommerce_template_loop_add_to_cart(); ?>
-				</article>
+					<?php
+
+					woocommerce_template_single_price();
+
+					// wc_get_template( 'page-templates/price.php' );
+
+					 ?>
+					<?php
+
+					 woocommerce_template_loop_add_to_cart();
+
+					//
+					// $x->str_replace("cart","",$x);
+
+					// echo $x;?>
+					</article>
 			<?php	endwhile;
 		} else {
 			echo __( 'No products found' );

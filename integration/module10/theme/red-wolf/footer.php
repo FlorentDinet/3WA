@@ -15,13 +15,15 @@
 		<footer>
 			<p>Proident esse aliquip officia nostrud cillum eiusmod consequat esse.</p>
 			<?php $menuParameters = array(
-						'container'       => false,
-						'echo'            => false,
-						'items_wrap'      => '%3$s',
-						'depth'           => 0,
-					);
+					'container'       => false,
+					'echo'            => false,
+					'items_wrap'      => '%3$s',
+					'depth'           => 0,
+					'menu'						=> 'Footer menu'
+				);
 
 echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' ); ?>
+
 <p>2016 - 3WA - Module 10 : Red Wolf</p>
 
 		</footer><!-- #colophon -->

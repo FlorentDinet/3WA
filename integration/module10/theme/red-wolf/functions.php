@@ -82,6 +82,7 @@ function twentyfourteen_setup() {
 	register_nav_menus( array(
 		'primary'   => __( 'Top primary menu', 'twentyfourteen' ),
 		'secondary' => __( 'Secondary menu in left sidebar', 'twentyfourteen' ),
+		'secondary' => __( 'Footer menu', 'twentyfourteen' ),
 	) );
 
 	/*
@@ -522,3 +523,21 @@ if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow
 }
 
 remove_filter('the_content', 'wpautop');
+
+// enleve l'accès aux outils si l'utilisateur n'est pas admin_init
+// enleve l'item de menu
+add_action( 'admin_init', 'my_remove_menu_pages' );
+function my_remove_menu_pages() {
+
+    if ( !current_user_can( 'administrator' ) ) {
+				remove_menu_page( 'tools.php' );
+    }
+}
+
+add_filter('woocommerce_template_loop_add_to_cart', 'flodi_modify_wc_cart_button');
+
+function flodi_modify_wc_cart_button($cart) {
+
+    return $cart . ' | Avec le plugin des zéros !' ;
+
+}
