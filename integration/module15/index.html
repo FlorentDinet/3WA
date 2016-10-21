@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cité de Saint-Benoît Aniane</title>
+    <meta name="description" content="Cité de Saint-Benoît Aniane" />
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+    <!-- FONTS -->
+    <!-- ICONS -->
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <!-- ICONS -->
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "fade",
+                controlNav: false,
+                move: 0,
+                customDirectionNav: $(".controler button")
+            });
+        });
+    </script>
+    <!-- JS -->
+
+</head>
+
+<body>
+    <header>
+        <div class="toolBar">
+            <section>
+                <a href="#" class="fontSizeLess">-</a>
+                <a href="#" class="fontSizePLus">+</a>
+                <a href="#" class="connection">Connexion</a>
+                <date>Le 07 Octobre 2013</date>
+            </section>
+        </div>
+        <section>
+            <a href="#" id="logo"><img src="../images/logo.png" alt="Cité de Saint-Benoît Aniane" /></a>
+            <div class="menu">
+                <nav>
+                    <a href="#" class="home active"><i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                    <a href="#">Actualités</a>
+                    <a href="#">Mairie</a>
+                    <a href="#">Vivre</a>
+                    <a href="#">Découvrir</a>
+                </nav>
+                <form class="search">
+                    <input type="text" name="userSearch" placeholder="Rechercher dans le site">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </header>
+    <section class="slider">
+        <div class="controler">
+            <p>Aniane<br />au grès du temps</p>
+            <button class="flex-prev"><i class="fa fa-caret-left" aria-hidden="true"></i>
+            </button>
+            <div class="clock"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            </div>
+            <button class="flex-next"><i class="fa fa-caret-right" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="sliderWrapper flexslider">
+            <ul class="slides">
+                <li>
+                    <div class="slide">
+                        <img src="/images/photo2.png" alt="">
+                        <div class="slide-infos">
+                            <h2><span>Portes ouvertes du</span>Choeur cantania</h2>
+                            <hr>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="/images/photo1.png" alt="">
+                        <div class="slide-infos">
+                            <h2><span>Offrez vous un bol</span>d'air frais</h2>
+                            <hr>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide">
+                        <img src="/images/photo1.png" alt="">
+                        <div class="slide-infos">
+                            <h2><span>Offrez vous un bol</span>d'air frais</h2>
+                            <hr>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="/images/photo2.png" alt="">
+                        <div class="slide-infos">
+                            <h2><span>Portes ouvertes du</span>Choeur cantania</h2>
+                            <hr>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <main>
+        <section>
+            <div class="main-content">
+                <article class="wide">
+                    <img src="/images/photo3.png" alt="">
+                    <div class="text">
+                        <h2><span>Le Bulletin</span>Municipal</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad possimus dicta harum neque delectus provident accusantium </p>
+                        <button class="readMore">En savoir plus</button>
+                    </div>
+                </article>
+                <article class="simple">
+                    <div class="text">
+                        <h2><span>Zoom sur</span>La bibliothèque</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad possimus dicta harum neque delectus provident accusantium </p>
+                        <button class="readMore">En savoir plus</button>
+                    </div>
+                </article>
+                <article class="simple">
+                    <img src="/images/photo5.png" alt="">
+                    <div class="text">
+                        <h2><span>Le plan</span>de ville</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad possimus dicta harum neque delectus provident accusantium </p>
+                        <button class="readMore">Découvrez aniane</button>
+                    </div>
+                </article>
+            </div>
+            <aside>
+                <article class="simple">
+                    <img src="/images/photo4.png" alt="">
+                    <div class="text">
+                        <h2><span>L'agenda</span>Culturel</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad possimus dicta harum neque delectus provident accusantium </p>
+                        <button class="readMore">Visitez l'agenda culturel</button>
+                    </div>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos sit quasi consectetur atque commodi est facere aliquid consequuntur voluptate, rem repellendus vero libero nobis quas accusantium dolorem explicabo optio quaerat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam rem, ipsa autem itaque rerum placeat voluptatum odio tenetur eius eaque similique perferendis quidem nesciunt incidunt temporibus, quos quasi natus magni?</p>
+            <div class="newsletter">
+                <h2><span>L'agenda</span>Culturel</h2>
+                <input type="text">
+                <button><i class="fa fa-envelope" aria-hidden="true"></i>
+          </button>
+            </div>
+            <div class="social">
+                <button>
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+        <section class="subMenu">
+            <a href="#">Nous contacter</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Plan du site</a>
+            <a href="#">Accessibilité</a>
+        </section>
+    </footer>
+</body>
+
+</html>
