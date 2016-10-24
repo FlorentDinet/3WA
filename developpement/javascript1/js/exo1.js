@@ -21,9 +21,9 @@ function askPlayerChoice(encouragement) {
     console.log("Choix " + playerChoice);
 
     while (!(testPlayerChoice(playerChoice))) {
-                    playerChoice = parseInt(prompt("Merci d'entrer un nombre entre " + min[difficulty - 1] + " et " + max[difficulty - 1]));
-        }
-        return playerChoice;
+        playerChoice = parseInt(prompt("Merci d'entrer un nombre entre " + min[difficulty - 1] + " et " + max[difficulty - 1]));
+    }
+    return playerChoice;
 }
 
 // on test la valdité du choix du joueur
