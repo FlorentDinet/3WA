@@ -7,20 +7,20 @@
 
     var listeGroup = {
         nbPhrases: 2,
-        auteur: "",
-        date: "",
-        courant: "",
+        auteur: "Booba",
+        oeuvre: "Y'a plus de nutella",
+        date: "2016",
+        courant: "lyrics",
         poeme: [],
         demandePhrases: function() {
             for (var i = 0; i < this.nbPhrases; i++) {
                 var phrase = "";
-                var regX = new RegExp("^[a-zA-Z ]{10,100}");
-                while (!regX.test(phrase)) {
+                var regX = new RegExp("^[a-zA-Z ]{1,100}");
+                while (!regX.test(phrase) || !this.testPhraseLength(phrase)) {
                     phrase = prompt("Merci de saisir une phrase d'au moins 20 charactères");
                     console.log(phrase);
                 }
                 this.poeme.push(phrase);
-                console.log(this.poeme);
             }
         },
         deboguer: function() {
@@ -52,15 +52,15 @@
         },
         integrer: function() {
             var ul = document.createElement('ul');
-            ul.setAttribute('class' , 'list-group');
+            ul.setAttribute('class', 'list-group');
 
 
             for (var phrase in this.poeme) {
-              var li = document.createElement('li');
-              li.setAttribute('class' , 'list-group-item');
-              var text = document.createTextNode(this.poeme[phrase]);
-              li.appendChild(text);
-              ul.appendChild(li);
+                var li = document.createElement('li');
+                li.setAttribute('class', 'list-group-item');
+                var text = document.createTextNode(this.poeme[phrase]);
+                li.appendChild(text);
+                ul.appendChild(li);
             }
 
             document.querySelector('#poeme').appendChild(ul);
@@ -73,9 +73,47 @@
             // document.getElementById("poeme").innerHTML += htmlToInsert;
         },
         inBlockQuote: function() {
-            document.querySelectorAll('#poeme ul').insertBefore(createElement(blockquote));
+            var uls = document.querySelectorAll('#poeme ul');
+
+            for (var i = 0; i < uls.length; i++) {
+                var blockquote = document.createElement("blockquote");
+                var ulToEncapsule = uls[i];
+                var parentDiv = ulToEncapsule.parentNode;
+                parentDiv.insertBefore(blockquote, ulToEncapsule);
+                parentDiv.removeChild(ulToEncapsule);
+                blockquote.appendChild(ulToEncapsule);
+
+                var footer = document.createElement("footer");
+                var auteur = document.createTextNode(this.auteur + " ");
+                var cite = document.createElement("cite");
+                var infos = document.createTextNode(this.oeuvre + "- en " + this.date);
+
+                cite.appendChild(infos);
+                footer.appendChild(auteur);
+                footer.appendChild(cite);
+
+
+                blockquote.appendChild(footer);
+            }
+
+        },
+        testPhraseLength: function(phrase) {
+            var mots = phrase.split(/\b\w+\b/);
+            var nb = mots.length - 1;
+            if (nb >= 5) {
+                console.log("phrase valide " + nb);
+                return true;
+            } else {
+                console.log("phrase invalide " + nb);
+                return false;
+            }
         }
+
     };
+
+    var TypePoeme = {
+      
+    }
 
 
     listeGroup.demandePhrases();
