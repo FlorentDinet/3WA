@@ -112,8 +112,8 @@
     };
 
     var TypePoeme = {
-      
-    }
+
+    };
 
 
     listeGroup.demandePhrases();
