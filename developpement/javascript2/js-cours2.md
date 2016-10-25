@@ -39,3 +39,39 @@ mais on peut y accéder (dans le IIFE) avec objet.
  *   Bonus 2: Verifier que chaque phrase fasse au moins 5 mots
  *   Bonus 3: Créer un Objet TypePoeme qui appelera l'objet listeGroup pour dire si ce poeme est un Acrostiche ou pas
 */
+
+
+
+
+/*
+* Exercice du Carnet d'Adresse: Objet et Composition d'Objet
+*/
+
+
+
+/**
+*
+* Créer un objet Adresse qui a 5 attributs vide de valeur (null): Adresse, Ville, Code Postal, Pays, Longitude et Latitude
+*
+* Créer un attribut initialisation qui permet d'initialiser les 5 attributs par des valeurs entrées par l'utilisateurs
+* Créer un attribut permettant d'afficher les coordonées GPS: Longitude et Latitude dans une phrase "La longitude est de ... et la latitude est de ..."
+*
+* Créer un attribut departement permettant de retourner le département à partir du code postal initialisé
+*
+* Créer un attribut permettant de dire si l'adresse est de Villeurbanne à partir du Zipcode ou à partir des coordonées GPS
+*
+* Créer un attribut qui permettra de modifier l'adresse et la ville de l'utilisateur.
+*
+* Créer un attribut permettant d'afficher dans le HTML toutes les informations de l'adresse  dans une classe Jumbotron
+*
+* Composition: Créer un nouvel objet CarnetAdresse avec 2 attributs:
+* AdresseDeLivraison et AdresseDeFacturation
+*
+* Créer une methode initialisation permettant d'initialiser 2 objets Adresse dans les 2 attributs AdresseDeLivraison et AdresseDeFacturation
+*
+* Créer une methode render() permettant d'afficher l'adresse AdresseDeLivraison et l'AdresseDeFacturation dans des class jimbotron
+*
+* Bonus: Créer un attribut autreAdresse qui sera un tableau d'autres adresse
+* Bonus2: Créer 2 attributs permettant d'ajouter ou de supprimer d'autre adresse
+* Bonus3: Créer un attribut permettant d'afficher l'ensemble des sous-adresse dans un jubotron
+*/

@@ -6,12 +6,13 @@
     "use strict";
 
     var listeGroup = {
-        nbPhrases: 2,
+        nbPhrases: 5,
         auteur: "Booba",
         oeuvre: "Y'a plus de nutella",
         date: "2016",
         courant: "lyrics",
         poeme: [],
+        id: 0,
         demandePhrases: function() {
             for (var i = 0; i < this.nbPhrases; i++) {
                 var phrase = "";
@@ -53,6 +54,8 @@
         integrer: function() {
             var ul = document.createElement('ul');
             ul.setAttribute('class', 'list-group');
+            ul.setAttribute('id', 'poeme#' + this.id);
+            ul.style.position = "relative";
 
 
             for (var phrase in this.poeme) {
@@ -78,29 +81,32 @@
             for (var i = 0; i < uls.length; i++) {
                 var blockquote = document.createElement("blockquote");
                 var ulToEncapsule = uls[i];
-                var parentDiv = ulToEncapsule.parentNode;
-                parentDiv.insertBefore(blockquote, ulToEncapsule);
-                parentDiv.removeChild(ulToEncapsule);
-                blockquote.appendChild(ulToEncapsule);
+                var parentElement = ulToEncapsule.parentNode;
+                if (parentElement.tagName != "BLOCKQUOTE") {
 
-                var footer = document.createElement("footer");
-                var auteur = document.createTextNode(this.auteur + " ");
-                var cite = document.createElement("cite");
-                var infos = document.createTextNode(this.oeuvre + "- en " + this.date);
+                    parentElement.insertBefore(blockquote, ulToEncapsule);
+                    parentElement.removeChild(ulToEncapsule);
+                    blockquote.appendChild(ulToEncapsule);
 
-                cite.appendChild(infos);
-                footer.appendChild(auteur);
-                footer.appendChild(cite);
+                    var footer = document.createElement("footer");
+                    var auteur = document.createTextNode(this.auteur + " ");
+                    var cite = document.createElement("cite");
+                    var infos = document.createTextNode(this.oeuvre + "- en " + this.date);
+
+                    cite.appendChild(infos);
+                    footer.appendChild(auteur);
+                    footer.appendChild(cite);
 
 
-                blockquote.appendChild(footer);
+                    blockquote.appendChild(footer);
+                }
             }
 
         },
         testPhraseLength: function(phrase) {
             var mots = phrase.split(/\b\w+\b/);
             var nb = mots.length - 1;
-            if (nb >= 5) {
+            if (nb >= 2) {
                 console.log("phrase valide " + nb);
                 return true;
             } else {
@@ -111,7 +117,48 @@
 
     };
 
-    var TypePoeme = {
+    var typePoeme = {
+        recupPremiersMots: function(poeme) {
+            var premiersMots = [];
+            var premieresLettres = [];
+            for (var phrase in poeme) {
+                var mots = poeme[phrase].split(/\s/);
+                var lettres = poeme[phrase].charAt(0);
+                premiersMots.push(mots[0]);
+                premieresLettres.push(lettres[0]);
+            }
+            console.log("Les premiers mots du poeme sont : " + premiersMots);
+            console.log("Les premières lettres du poeme sont : " + premieresLettres);
+            return [premiersMots, premieresLettres];
+        },
+
+        prosposeUser: function(poeme, id) {
+            var resultat = typePoeme.recupPremiersMots(poeme);
+            var premiersMots = resultat[0];
+            var premieresLettres = resultat[1];
+
+            if (confirm("Est-ce que " + premiersMots.join(" ") + " vous semble être le résultat d'un acrostiche ?")) {
+                this.afficheAcrostiche("poeme#" + id);
+            } else if (confirm("Est-ce que " + premieresLettres.join("") + " vous semble être le résultat d'un acrostiche ?")) {
+                this.afficheAcrostiche("poeme#" + id);
+            } else {
+                console.log(poeme + " n'est pas un acrostiche");
+            }
+        },
+        isAnAcrostiche: function(poeme, id) {
+            var resultat = typePoeme.recupPremiersMots(poeme);
+            var premieresLettres = resultat[1].join("");
+console.log(premieresLettres + " " + listeGroup.auteur.toUpperCase());
+            if (premieresLettres === listeGroup.auteur.toUpperCase()) {
+                this.afficheAcrostiche("poeme#" + id);
+            } else {
+                console.log(poeme + " n'est pas un acrostiche");
+            }
+        },
+        afficheAcrostiche: function(poemeId) {
+            var ul = document.getElementById(poemeId);
+            ul.innerHTML += '<img src="images/ribery_academie.png" width="160" height"auto" style="position: absolute;top: -40px;right: 0;">';
+        }
 
     };
 
@@ -123,6 +170,11 @@
     listeGroup.capitalise();
     listeGroup.integrer();
     listeGroup.inBlockQuote();
+    listeGroup.inBlockQuote();
 
+    typePoeme.isAnAcrostiche(listeGroup.poeme, listeGroup.id);
+    // typePoeme.prosposeUser(listeGroup.poeme, listeGroup.id);
+
+    //
 
 })(); // FIN DU IIFE
