@@ -7,18 +7,33 @@
         ville: "",
         codePostal: 0,
         pays: "",
-        longitude: 0,
         latitude: 0,
-        init: function() {
+        longitude: 0,
+        id: 0,
+        init: function(id) {
+            this.id = id;
+            this.askUser();
+            return this;
+        },
+        askUser: function(demande) {
             for (var i in this) {
                 if (this.hasOwnProperty(i) && typeof this[i] != "function") {
-                    console.log(typeof this[i]);
-                    this[i] = prompt("Veuillez entrer votre " + i);
+                    if (demande) {
+
+                        for (var y = 0; y < demande.length; y++) {
+
+                            if (i == demande[y]) {
+                                this[i] = prompt("Veuillez entrer votre " + i + " pour l'adresse " + this.id);
+                            }
+                        }
+                    } else {
+                        this[i] = prompt("Veuillez entrer votre " + i + " pour l'adresse " + this.id);
+                    }
                 }
             }
         },
         displayGPS: function() {
-            alert("La longitude est de " + this.longitude + " et la latitude est de " + this.latitude)
+            alert("La latitude est de " + this.latitude + " et la longitude est de " + this.longitude);
         },
         departement: function() {
             var departementFrancais = [
@@ -124,20 +139,61 @@
                 "973 Guyane",
                 "974 La Réunion",
                 "976 Mayotte"
-            ]
+            ];
             var codeDepartement = this.codePostal.substring(0, 2);
             return codeDepartement;
         },
-        isVilleurbanne : function() {
-          var departement = this.departement();
-          var gps = this.longitude + "," + this.latitude;
-          
+        isVilleurbanne: function() {
+            var gpsVilleurbanne = {
+                "latitude": 45.771944,
+                "longitude": 4.89017089999993
+            };
+            var sameLatitude = Math.abs(this.latitude - gpsVilleurbanne.latitude) < 0.01;
+            var sameLongitude = Math.abs(this.longitude - gpsVilleurbanne.longitude) < 0.01;
+
+            if (parseInt(this.codePostal) === 69100 || (sameLatitude && sameLongitude)) {
+                alert("vous êtes à villeurbanne");
+            }
+        },
+        modifAdresseVille: function() {
+            this.askUser(["codePostal", "ville"]);
+        },
+        displayAdresse: function() {
+            var jumbo = '<div class="jumbotron">';
+            jumbo += '<h2>Adresse ' + this.id + '</h2>';
+            for (var i in this) {
+                if (this.hasOwnProperty(i) && typeof this[i] != "function" && i != "id") {
+                    jumbo += '<p>' + this[i] + '</p>';
+                }
+            }
+            jumbo += '</div>';
+            document.getElementById("container").innerHTML += jumbo;
         }
     };
 
-    adresse.init();
-    adresse.displayGPS();
-    console.log(adresse.departement());
+    var carnetAdresse = {
+        adresseDeLivraison: "",
+        adresseDeFacturation: "",
+        inititalisation: function() {
+            this.adresseDeLivraison = adresse.init("Livraison");
+            this.adresseDeFacturation = adresse.init("Facturation");
+            this.adresseDeLivraison.displayAdresse();
+            this.adresseDeFacturation.displayAdresse();
+        }
+    };
+
+    // adresse.init();
+    // adresse.displayGPS();
+    // console.log(adresse.departement());
+    // adresse.isVilleurbanne();
+    // adresse.modifAdresseVille();
+
+    carnetAdresse.inititalisation();
+
+    console.log(carnetAdresse.adresseDeLivraison);
+    console.log(carnetAdresse.adresseDeFacturation);
+
+
 
 
 
