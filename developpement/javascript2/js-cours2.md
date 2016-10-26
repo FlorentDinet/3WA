@@ -14,6 +14,11 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Strict_mode
 mais on peut y accéder (dans le IIFE) avec objet.
 
 
+# PARCOURIR UN TABLEAU POUR FAIRE UN TRAITEMENT
+
+arr.reduce(callback[, valeurInitiale]);
+
+
 /**
  *
  * Exercice du Poème à réaliser avec la css Boostrapp
