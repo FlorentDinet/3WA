@@ -188,10 +188,24 @@
     // adresse.isVilleurbanne();
     // adresse.modifAdresseVille();
 
-    carnetAdresse.inititalisation();
+    // carnetAdresse.inititalisation();
+    //
+    // console.log(carnetAdresse.adresseDeLivraison);
+    // console.log(carnetAdresse.adresseDeFacturation);
 
-    console.log(carnetAdresse.adresseDeLivraison);
-    console.log(carnetAdresse.adresseDeFacturation);
+    function remplaceApoI() {
+        var regxx = new RegExp("'[a-z0-9\-\.\, ]+\'");
+        var substr = "'une citation'";
+        var str = "Chaine de texte avec 'une citation' bien reloue";
+
+        function remplaceur(match, p1, p2, p3, offset, string) {
+            return "<i>" + match.substring(1, match.length - 1) + "</i>";
+        }
+        var res = str.replace(regxx, remplaceur);
+
+        console.log(res);
+
+    }
 
 
 
