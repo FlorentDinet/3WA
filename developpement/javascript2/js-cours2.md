@@ -18,6 +18,18 @@ mais on peut y accéder (dans le IIFE) avec objet.
 
 arr.reduce(callback[, valeurInitiale]);
 
+# DETECTER UNE CHAINE DANS UN TABLEAU
+tableau.indexOf(element);
+
+# DETECTER UNE CHAINE DANS UNE CHAINE
+str.indexOf("welcome");
+
+# JQUERY CHEATSHEET
+https://oscarotero.com/jquery/
+
+# THEMES BOOTSTRAPS
+wrapbootsrap
+
 
 /**
  *

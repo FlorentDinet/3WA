@@ -11,8 +11,8 @@
         longitude: 0,
         id: 0,
         init: function(id) {
-            this.id = id;
-            this.askUser();
+        this.id = id;
+        this.askUser();
             return this;
         },
         askUser: function(demande) {
@@ -175,10 +175,17 @@
         adresseDeLivraison: "",
         adresseDeFacturation: "",
         inititalisation: function() {
-            this.adresseDeLivraison = adresse.init("Livraison");
-            this.adresseDeFacturation = adresse.init("Facturation");
+            this.adresseDeLivraison = Object.create(adresse);
+            console.log(this.adresseDeLivraison);
+            this.adresseDeLivraison.init();
+            this.adresseDeFacturation = Object.create(adresse);
+            this.adresseDeFacturation.init();
+            console.log(this.adresseDeLivraison);
+            console.log(this.adresseDeFacturation);
             this.adresseDeLivraison.displayAdresse();
             this.adresseDeFacturation.displayAdresse();
+        },
+        render : function() {
         }
     };
 
@@ -188,24 +195,25 @@
     // adresse.isVilleurbanne();
     // adresse.modifAdresseVille();
 
-    // carnetAdresse.inititalisation();
+    carnetAdresse.inititalisation();
+    carnetAdresse.render();
     //
     // console.log(carnetAdresse.adresseDeLivraison);
     // console.log(carnetAdresse.adresseDeFacturation);
 
-    function remplaceApoI() {
-        var regxx = new RegExp("'[a-z0-9\-\.\, ]+\'");
-        var substr = "'une citation'";
-        var str = "Chaine de texte avec 'une citation' bien reloue";
-
-        function remplaceur(match, p1, p2, p3, offset, string) {
-            return "<i>" + match.substring(1, match.length - 1) + "</i>";
-        }
-        var res = str.replace(regxx, remplaceur);
-
-        console.log(res);
-
-    }
+    // function remplaceApoI() {
+    //     var regxx = new RegExp("'[a-z0-9\-\.\, ]+\'");
+    //     var substr = "'une citation'";
+    //     var str = "Chaine de texte avec 'une citation' bien reloue";
+    //
+    //     function remplaceur(match, p1, p2, p3, offset, string) {
+    //         return "<i>" + match.substring(1, match.length - 1) + "</i>";
+    //     }
+    //     var res = str.replace(regxx, remplaceur);
+    //
+    //     console.log(res);
+    //
+    // }
 
 
 
