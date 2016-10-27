@@ -17,7 +17,7 @@
         },
         askUser: function(demande) {
             for (var i in this) {
-                if (this.hasOwnProperty(i) && typeof this[i] != "function") {
+                if (typeof this[i] != "function") {
                     if (demande) {
 
                         for (var y = 0; y < demande.length; y++) {
@@ -175,7 +175,7 @@
         adresseDeLivraison: "",
         adresseDeFacturation: "",
         inititalisation: function() {
-            this.adresseDeLivraison = Object.create(adresse);
+            this.adresseDeLivraison = adresse.init();
             console.log(this.adresseDeLivraison);
             this.adresseDeLivraison.init();
             this.adresseDeFacturation = Object.create(adresse);

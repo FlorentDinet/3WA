@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jquery</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            padding: 10rem 0;
+        }
+
+        fieldset {
+            display: block;
+            margin: 0 0 2em 0;
+            padding: 2em;
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="">
+            <form class="form-horizontal" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="nom" class="col-sm-4 control-label">Nom</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="nom" placeholder="Nom">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom" class="col-sm-4 control-label">Prénom</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age" class="col-sm-4 control-label">Âge</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="age" placeholder="Âge">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="codePostal" class="col-sm-4 control-label">Code postal</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="codePostal" placeholder="codePostal">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ville" class="col-sm-4 control-label">Ville</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="ville" placeholder="Ville">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatarUrl" class="col-sm-4 control-label">Url de votre avatar</label>
+                        <div class="col-sm-6">
+                            <input type="url" class="form-control" id="avatarUrl" placeholder="url de votre avatar">
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <div class="form-group">
+                        <label for="biographie" class="col-sm-4 control-label">Biographie</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="3" id="biographie" placeholder="Biographie"></textarea>
+                            <span id="helpBlock" class="help-block"></span>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-default" type="button" id="fontMaximus">+</button>
+                            <button class="btn btn-default" type="button" id="fontMinus">-</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="form-group">
+                        <label for="pw" class="col-sm-4 control-label">Mot de passe</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" id="pw" placeholder="Mot de passe">
+                            <!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
+                            <div class="checkbox">
+                                <label><input type="checkbox" id="revealPw">Afficher le mot de passe</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwConfirm" class="col-sm-4 control-label">Confirmation</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" id="pwConfirm" placeholder="Confirmer le mot de passe">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <div class="col-sm-offset-4 col-sm-6">
+                            <label><input type="checkbox" id="CGU">J'ai lu les Conditions Générales d'Utilisations</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-6">
+                        <button type="button" class="btn btn-default" id="createAccount">Créer son compte</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/authentification.js" charset="utf-8"></script>
+</body>
+
+</html>
