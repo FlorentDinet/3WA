@@ -1,6 +1,6 @@
-(function() { //IIFE
+// (function() { //IIFE
 
-    "use strict";
+    // "use strict";
 
     var adresse = {
         adresse: "",
@@ -17,7 +17,7 @@
         },
         askUser: function(demande) {
             for (var i in this) {
-                if (typeof this[i] != "function") {
+                if (typeof this[i] != "function" && i != "id") {
                     if (demande) {
 
                         for (var y = 0; y < demande.length; y++) {
@@ -175,17 +175,22 @@
         adresseDeLivraison: "",
         adresseDeFacturation: "",
         inititalisation: function() {
-            this.adresseDeLivraison = adresse.init();
+            this.adresseDeLivraison = Object.create(adresse);
+            console.log("+++++++adresse++++++++++++++");
+            console.log(adresse);
+            console.log("+++++++adresseDeLivraison++++++++++++++");
             console.log(this.adresseDeLivraison);
-            this.adresseDeLivraison.init();
+            this.adresseDeLivraison.init("Livraison");
             this.adresseDeFacturation = Object.create(adresse);
-            this.adresseDeFacturation.init();
+            this.adresseDeFacturation.init("Facturation");
             console.log(this.adresseDeLivraison);
             console.log(this.adresseDeFacturation);
-            this.adresseDeLivraison.displayAdresse();
-            this.adresseDeFacturation.displayAdresse();
+            console.log("+++++++adresse++++++++++++++");
+            console.log(adresse);
         },
         render : function() {
+          this.adresseDeLivraison.displayAdresse();
+          this.adresseDeFacturation.displayAdresse();
         }
     };
 
@@ -218,5 +223,5 @@
 
 
 
-
-})(); // FIN DU IIFE
+//
+// })(); // FIN DU IIFE
