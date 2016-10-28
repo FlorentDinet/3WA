@@ -1,7 +1,10 @@
-// (function() { //IIFE
+(function() { //IIFE
 
-    // "use strict";
+    "use strict";
 
+    function show(element) {
+        console.log(element);
+    }
     var adresse = {
         adresse: "",
         ville: "",
@@ -11,23 +14,25 @@
         longitude: 0,
         id: 0,
         init: function(id) {
-        this.id = id;
-        this.askUser();
+            this.id = id;
+            this.askUser();
             return this;
         },
         askUser: function(demande) {
             for (var i in this) {
-                if (typeof this[i] != "function" && i != "id") {
+                if (typeof this[i] != "function") {
                     if (demande) {
-
                         for (var y = 0; y < demande.length; y++) {
-
                             if (i == demande[y]) {
                                 this[i] = prompt("Veuillez entrer votre " + i + " pour l'adresse " + this.id);
                             }
                         }
                     } else {
-                        this[i] = prompt("Veuillez entrer votre " + i + " pour l'adresse " + this.id);
+                        if (i == 'id' && !this.i) {
+                            this[i] = prompt("Veuillez entrer votre " + i + " pour cette adresse ");
+                        } else if (i !== 'id') {
+                            this[i] = prompt("Veuillez entrer votre " + i + " pour l'adresse " + this.id);
+                        }
                     }
                 }
             }
@@ -36,110 +41,6 @@
             alert("La latitude est de " + this.latitude + " et la longitude est de " + this.longitude);
         },
         departement: function() {
-            var departementFrancais = [
-                "01 Ain",
-                "02 Aisne",
-                "03 Allier",
-                "04 Alpes-de-Haute-Provence",
-                "05 Hautes-Alpes",
-                "06 Alpes-Maritimes",
-                "07 Ardèche",
-                "08 Ardennes",
-                "09 Ariège",
-                "10 Aube",
-                "11 Aude",
-                "12 Aveyron",
-                "13 Bouches-du-Rhône",
-                "14 Calvados",
-                "15 Cantal",
-                "16 Charente",
-                "17 Charente-Maritime",
-                "18 Cher",
-                "19 Corrèze",
-                "2A Corse-du-Sud",
-                "2B Haute-Corse",
-                "21 Côte-d'Or",
-                "22 Côtes-d'Armor",
-                "23 Creuse",
-                "24 Dordogne",
-                "25 Doubs",
-                "26 Drôme",
-                "27 Eure",
-                "28 Eure-et-Loir",
-                "29 Finistère",
-                "30 Gard",
-                "31 Haute-Garonne",
-                "32 Gers",
-                "33 Gironde",
-                "34 Hérault",
-                "35 Ille-et-Vilaine",
-                "36 Indre",
-                "37 Indre-et-Loire",
-                "38 Isère",
-                "39 Jura",
-                "40 Landes",
-                "41 Loir-et-Cher",
-                "42 Loire",
-                "43 Haute-Loire",
-                "44 Loire-Atlantique",
-                "45 Loiret",
-                "46 Lot",
-                "47 Lot-et-Garonne",
-                "48 Lozère",
-                "49 Maine-et-Loire",
-                "50 Manche",
-                "51 Marne",
-                "52 Haute-Marne",
-                "53 Mayenne",
-                "54 Meurthe-et-Moselle",
-                "55 Meuse",
-                "56 Morbihan",
-                "57 Moselle",
-                "58 Nièvre",
-                "59 Nord",
-                "60 Oise",
-                "61 Orne",
-                "62 Pas-de-Calais",
-                "63 Puy-de-Dôme",
-                "64 Pyrénées-Atlantiques",
-                "65 Hautes-Pyrénées",
-                "66 Pyrénées-Orientales",
-                "67 Bas-Rhin",
-                "68 Haut-Rhin",
-                "69D16 Rhône",
-                "69M16 Métropole de Lyon",
-                "70 Haute-Saône",
-                "71 Saône-et-Loire",
-                "72 Sarthe",
-                "73 Savoie",
-                "74 Haute-Savoie",
-                "75 Paris",
-                "76 Seine-Maritime",
-                "77 Seine-et-Marne",
-                "78 Yvelines",
-                "79 Deux-Sèvres",
-                "80 Somme",
-                "81 Tarn",
-                "82 Tarn-et-Garonne",
-                "83 Var",
-                "84 Vaucluse",
-                "85 Vendée",
-                "86 Vienne",
-                "87 Haute-Vienne",
-                "88 Vosges",
-                "89 Yonne",
-                "90 Territoire de Belfort",
-                "91 Essonne",
-                "92 Hauts-de-Seine",
-                "93 Seine-Saint-Denis",
-                "94 Val-de-Marne",
-                "95 Val-d'Oise",
-                "971 Guadeloupe",
-                "972 Martinique",
-                "973 Guyane",
-                "974 La Réunion",
-                "976 Mayotte"
-            ];
             var codeDepartement = this.codePostal.substring(0, 2);
             return codeDepartement;
         },
@@ -159,11 +60,80 @@
             this.askUser(["codePostal", "ville"]);
         },
         displayAdresse: function() {
-            var jumbo = '<div class="jumbotron">';
+            var adresseId = this.id;
+            var jumbo = '<div class="jumbotron row" id="' + this.id + '"><div class="col-sm-10">';
             jumbo += '<h2>Adresse ' + this.id + '</h2>';
             for (var i in this) {
                 if (this.hasOwnProperty(i) && typeof this[i] != "function" && i != "id") {
                     jumbo += '<p>' + this[i] + '</p>';
+                }
+            }
+            jumbo += '</div><div class="col-sm-2 text-right"><button type="button" class="btn btn-danger delete" id="delete-' + this.id + '">Supprimer</button></div></div>';
+            document.getElementById("container").innerHTML += jumbo;
+            document.getElementById('delete-' + this.id).onclick = function fun() {
+                carnetAdresse.delAdresse(adresseId);
+                show("cmd del of " + adresseId);
+                //validation code to see State field is mandatory.  
+            }
+
+
+
+
+        },
+        hideAdresse: function() {
+            var parent = document.getElementById("container");
+            var child = document.getElementById(this.id);
+            parent.removeChild(child);
+        }
+    };
+
+    var carnetAdresse = {
+        adresseDeLivraison: "",
+        adresseDeFacturation: "",
+        autresAdresses: [],
+        inititalisation: function() {
+            this.adresseDeLivraison = Object.create(adresse);
+            this.adresseDeLivraison.init("Livraison");
+            this.adresseDeFacturation = Object.create(adresse);
+            this.adresseDeFacturation.init("Facturation");
+        },
+        addAdresse: function() {
+            var newAdresse = Object.create(adresse);
+            newAdresse.init();
+            this.autresAdresses.push(newAdresse);
+        },
+        delAdresse: function(adresseId) {
+            for (var i = this.autresAdresses.length - 1; i >= 0; i--) {
+                if (this.autresAdresses[i].id === adresseId) {
+                    this.autresAdresses[i].hideAdresse();
+                    this.autresAdresses.splice(i, 1);
+                }
+            }
+        },
+        render: function() {
+
+            if (this.adresseDeLivraison) {
+                this.adresseDeLivraison.displayAdresse();
+            }
+            if (this.adresseDeFacturation) {
+                this.adresseDeFacturation.displayAdresse();
+            }
+
+            for (var i = 0; i < carnetAdresse.autresAdresses.length; i++) {
+                var element = carnetAdresse.autresAdresses[i];
+                element.displayAdresse();
+            }
+        },
+        displayAutresAdresses: function() {
+            var jumbo = '<div class="jumbotron" id="AutresAdresses">';
+            for (var i = 0; i < this.autresAdresses.length; i++) {
+                var element = this.autresAdresses[i];
+
+                jumbo += '<h2>Adresse ' + element.id + '</h2>';
+                for (var y in element) {
+                    if (element.hasOwnProperty(y) && typeof element[y] != "function" && y != "id") {
+                        jumbo += '<p>' + element[y] + '</p>';
+                    }
                 }
             }
             jumbo += '</div>';
@@ -171,28 +141,8 @@
         }
     };
 
-    var carnetAdresse = {
-        adresseDeLivraison: "",
-        adresseDeFacturation: "",
-        inititalisation: function() {
-            this.adresseDeLivraison = Object.create(adresse);
-            console.log("+++++++adresse++++++++++++++");
-            console.log(adresse);
-            console.log("+++++++adresseDeLivraison++++++++++++++");
-            console.log(this.adresseDeLivraison);
-            this.adresseDeLivraison.init("Livraison");
-            this.adresseDeFacturation = Object.create(adresse);
-            this.adresseDeFacturation.init("Facturation");
-            console.log(this.adresseDeLivraison);
-            console.log(this.adresseDeFacturation);
-            console.log("+++++++adresse++++++++++++++");
-            console.log(adresse);
-        },
-        render : function() {
-          this.adresseDeLivraison.displayAdresse();
-          this.adresseDeFacturation.displayAdresse();
-        }
-    };
+
+
 
     // adresse.init();
     // adresse.displayGPS();
@@ -200,8 +150,12 @@
     // adresse.isVilleurbanne();
     // adresse.modifAdresseVille();
 
-    carnetAdresse.inititalisation();
+    carnetAdresse.addAdresse();
+
+
     carnetAdresse.render();
+    // carnetAdresse.displayAutresAdresses();
+
     //
     // console.log(carnetAdresse.adresseDeLivraison);
     // console.log(carnetAdresse.adresseDeFacturation);
@@ -220,8 +174,4 @@
     //
     // }
 
-
-
-
-//
-// })(); // FIN DU IIFE
+})(); // FIN DU IIFE
