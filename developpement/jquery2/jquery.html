@@ -10,19 +10,22 @@
         body {
             padding: 10rem 0;
         }
-
+        
         fieldset {
             display: block;
             margin: 0 0 2em 0;
             padding: 2em;
             background: #f1f1f1;
         }
+        
+        .progress {
+            margin: 10px 0 0;
+            background-color: #e2e2e2;
+        }
     </style>
 </head>
 
-
 <body>
-
     <div class="container">
         <div class="">
             <form class="form-horizontal" novalidate>
@@ -69,9 +72,7 @@
                             <input type="url" class="form-control" id="avatarUrl" placeholder="url de votre avatar">
                         </div>
                     </div>
-
                 </fieldset>
-
                 <fieldset>
                     <div class="form-group">
                         <label for="biographie" class="col-sm-4 control-label">Biographie</label>
@@ -84,14 +85,59 @@
                             <button class="btn btn-default" type="button" id="fontMinus">-</button>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="optionsRadios" class="col-sm-4 control-label">Sport favori</label>
+                        <div class="col-sm-6">
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                Foot
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                Volley
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option2">
+                                Curling
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios4" value="option2">
+                                Base-jumping
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2">
+                                Golf
+                            </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios6" value="option2">
+                                Autre
+                            </label>
+                            </div>
+                        </div>
+                    </div>
                 </fieldset>
-
                 <fieldset>
                     <div class="form-group">
                         <label for="pw" class="col-sm-4 control-label">Mot de passe</label>
                         <div class="col-sm-6">
                             <input type="password" class="form-control" id="pw" placeholder="Mot de passe">
                             <!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                    <span class="sr-only">60% Complete</span>
+                                </div>
+                            </div>
                             <div class="checkbox">
                                 <label><input type="checkbox" id="revealPw">Afficher le mot de passe</label>
                             </div>
@@ -119,10 +165,6 @@
             </form>
         </div>
     </div>
-
-
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->

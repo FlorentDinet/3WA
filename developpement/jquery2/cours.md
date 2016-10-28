@@ -37,3 +37,18 @@
 
    Bonus: Ajouter une classe has-error quand le champs email comporte une erreur
    ou has-success quand le champs n'a pas d'erreur
+
+  ------------
+
+   Bonus 2: Ajouter 5 boutons checkbox pour le choix de Sport Favoris
+   et une case Autre. Puis vérifier que l'utilisateur lors de la soumission du formulaire
+   a au moins coché une case. Quand je clique sur Autre: un champs texte apparait en dessous
+   permettant de saisir un autre sport.
+   
+   Bonus 3: Ajouter une progressBar Bootsrapp http://getbootstrap.com/components/#progress
+   en fonction de la longeur du mot de passe et s'il comporte une lettre, un chiffre, un caractère spécial
+   
+   Bonus4: Quand le mot de passe n'est pas le même en confirmation, 
+   ajouter la classe "shake" en animation avec la librairie animate.css
+   
+   

@@ -92,3 +92,7 @@ wrapbootsrap
 * Bonus2: Créer 2 attributs permettant d'ajouter ou de supprimer d'autre adresse
 * Bonus3: Créer un attribut permettant d'afficher l'ensemble des sous-adresse dans un jubotron
 */
+
+principe de SOLID
+
+

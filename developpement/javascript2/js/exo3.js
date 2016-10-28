@@ -73,8 +73,8 @@
             document.getElementById('delete-' + this.id).onclick = function fun() {
                 carnetAdresse.delAdresse(adresseId);
                 show("cmd del of " + adresseId);
-                //validation code to see State field is mandatory.  
-            }
+                //validation code to see State field is mandatory.
+            };
 
 
 

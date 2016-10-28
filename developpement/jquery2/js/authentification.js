@@ -3,16 +3,34 @@
 // Ouverture Jquery: 1ere ligne à écrire
 $(document).ready(function() {
 
-    function testConfirm() {
+    ////////// TEST PW CONFIRM //////////
 
-        ////////// TEST PW CONFIRM //////////
+    function testConfirm() {
         var pwInput = $('input#pw').val();
         var pwConfirmInput = $('input#pwConfirm').val();
         var isSamePw = pwConfirmInput == pwInput;
         displayState("input#pwConfirm", isSamePw && pwConfirmInput);
-        //////////
 
     }
+    //////////
+
+    ////////// AVALUATE PW POWER //////////
+    function testPwPower() {
+
+        var pwInput = $('input#pw').val();
+
+
+    }
+    //////////
+
+    ////////// ANIMATE PROGRESS BAR //////////
+    function animateProgressBar(progressBarID, progress, state) {
+
+
+
+
+    }
+    //////////
 
     function testcodePostal() {
         ////////// TEST CODE POSTAL //////////
@@ -97,15 +115,27 @@ $(document).ready(function() {
         if ($("#revealPw").is(':checked')) {
             $('#pw').attr('type', 'text');
         } else {
-          $('#pw').attr('type', 'password');
+            $('#pw').attr('type', 'password');
         }
     });
 
+    /////// REVEAL OTHERSPORT TEXTBOX //////
+    $('div.radio input').click(function() {
+        if ($("#optionsRadios6").is(':checked')) {
+            var newTextBoxDiv = $(document.createElement('div'))
+                .attr("class", 'form-group');
+            newTextBoxDiv.html('<label class="col-sm-4 control-label">Veuiller spécifier :</label>' +
+                '<div class="col-sm-6"><input type="text" name="textbox" id="otherSport" class="form-control" value="" ></div>');
+            $('div.form-group:has(#optionsRadios6)').after(newTextBoxDiv);
+        } else {
+            if ($('#otherSport')) {
+                $('div.form-group:has(#otherSport)').remove();
+            }
+        };
+    });
 
 
-
-
-    //JE selectionne mon bouton de formulaire et j'écoute le focus out
+    //Selectionne mon bouton de formulaire et j'écoute le focus out
     $('button#createAccount').click(function() {
 
         // val() fonction jquery pour récupérer la valeur d'un input
