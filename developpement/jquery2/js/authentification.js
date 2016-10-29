@@ -3,6 +3,11 @@
 // Ouverture Jquery: 1ere ligne à écrire
 $(document).ready(function () {
 
+    function show(message) {
+        console.log(message);
+    }
+
+
     ////////// TEST PW CONFIRM //////////
 
     function testConfirm() {
@@ -10,16 +15,29 @@ $(document).ready(function () {
         var pwConfirmInput = $('input#pwConfirm').val();
         var isSamePw = pwConfirmInput == pwInput;
         displayState("input#pwConfirm", isSamePw && pwConfirmInput);
-
     }
     //////////
 
     ////////// AVALUATE PW POWER //////////
-    function testPwPower() {
 
+    var pwPwRegeX = [
+        /[a-z]/,
+        /[0-9]/,
+        /[\-\_\@]/,
+        /^[a-z0-9\-\_\@]{8,20}$/
+    ];
+
+
+    function testPwPower() {
         var pwInput = $('input#pw').val();
 
+        function testRegeX(value) {
+            return value.test(pwInput);
 
+        }
+        var regeXTrue = pwPwRegeX.filter(testRegeX);
+        var pwPw = regeXTrue.length;
+        show(pwPw);
     }
     //////////
 
@@ -43,6 +61,9 @@ $(document).ready(function () {
         //////////
     }
 
+    $('input#pw').keyup(function () {
+        testPwPower();
+    });
 
     $('input#pwConfirm').keyup(function () {
         testConfirm();
@@ -217,7 +238,6 @@ $(document).ready(function () {
 
         ////////// TEST PW //////////
         var pwInput = $('input#pw').val();
-        //longueur de la valeur de mon element email
         var pwValid = false;
         var pwRegeX = /^[a-z0-9\-\_\@]{8,20}$/;
 
