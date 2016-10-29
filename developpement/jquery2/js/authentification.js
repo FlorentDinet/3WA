@@ -20,32 +20,46 @@ $(document).ready(function () {
 
     ////////// AVALUATE PW POWER //////////
 
+    var pwMinLength = 8;
+
     var pwPwRegeX = [
         /[a-z]/,
         /[0-9]/,
-        /[\-\_\@]/,
-        /^[a-z0-9\-\_\@]{8,20}$/
+        /[\-\_\@]/
     ];
 
+    var pwPw = 0;
 
     function testPwPower() {
         var pwInput = $('input#pw').val();
 
+
+        // TEST DE COMPLEXITE
         function testRegeX(value) {
             return value.test(pwInput);
-
         }
         var regeXTrue = pwPwRegeX.filter(testRegeX);
-        var pwPw = regeXTrue.length;
-        show(pwPw);
+        var pwComplexity = regeXTrue.length;
+        //
+
+        // TEST LONGUEUR
+        if (pwInput.length <= 8){
+        var pwLength = pwInput.length;
+        } else {
+            pwLength = 8;
+        }
+        //
+        var maxPw = pwPwRegeX.length * 3 + pwMinLength;
+
+        pwPw =((pwComplexity * 3 + pwLength)*100)/maxPw;
+        
+        return pwPw+'%';
+
     }
     //////////
 
     ////////// ANIMATE PROGRESS BAR //////////
     function animateProgressBar(progressBarID, progress, state) {
-
-
-
 
     }
     //////////
@@ -61,8 +75,8 @@ $(document).ready(function () {
         //////////
     }
 
-    $('input#pw').keyup(function () {
-        testPwPower();
+    $('input#pw').keyup(function () {      
+        $('input#pw+div div.progress-bar').css('width',testPwPower());
     });
 
     $('input#pwConfirm').keyup(function () {
