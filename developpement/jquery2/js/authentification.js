@@ -1,7 +1,7 @@
 //...
 //... une fois css et html chargés
 // Ouverture Jquery: 1ere ligne à écrire
-$(document).ready(function() {
+$(document).ready(function () {
 
     ////////// TEST PW CONFIRM //////////
 
@@ -44,11 +44,11 @@ $(document).ready(function() {
     }
 
 
-    $('input#pwConfirm').keyup(function() {
+    $('input#pwConfirm').keyup(function () {
         testConfirm();
     });
 
-    $('input#codePostal').blur(function() {
+    $('input#codePostal').blur(function () {
         testcodePostal();
         autoCompVille();
     });
@@ -84,7 +84,7 @@ $(document).ready(function() {
 
     /// COMPTEUR DE CARACTERES /////
 
-    $('textarea#biographie').keyup(function() {
+    $('textarea#biographie').keyup(function () {
         var biographieInput = $('textarea#biographie').val();
         if (biographieInput) {
             $('#helpBlock').text(biographieInput.length);
@@ -98,12 +98,12 @@ $(document).ready(function() {
     //// BOUTONS + - TAILLE POLICE HELP /////
     var fontSize = 1;
 
-    $('button#fontMaximus').click(function() {
+    $('button#fontMaximus').click(function () {
 
         fontSize++;
         $('#helpBlock').css('font-size', fontSize + "rem");
     });
-    $('button#fontMinus').click(function() {
+    $('button#fontMinus').click(function () {
         if (fontSize > 1) {
             fontSize--;
         }
@@ -111,7 +111,7 @@ $(document).ready(function() {
     });
 
     /////// REVEAL PASSWORD //////
-    $('#revealPw').click(function() {
+    $('#revealPw').click(function () {
         if ($("#revealPw").is(':checked')) {
             $('#pw').attr('type', 'text');
         } else {
@@ -120,23 +120,28 @@ $(document).ready(function() {
     });
 
     /////// REVEAL OTHERSPORT TEXTBOX //////
-    $('div.radio input').click(function() {
+    $('div.radio input').click(function () {
+        var isAlreadyThere = $('#otherSport').length;
+        console.log(isAlreadyThere);
         if ($("#optionsRadios6").is(':checked')) {
-            var newTextBoxDiv = $(document.createElement('div'))
-                .attr("class", 'form-group');
-            newTextBoxDiv.html('<label class="col-sm-4 control-label">Veuiller spécifier :</label>' +
-                '<div class="col-sm-6"><input type="text" name="textbox" id="otherSport" class="form-control" value="" ></div>');
-            $('div.form-group:has(#optionsRadios6)').after(newTextBoxDiv);
+            if (!isAlreadyThere) {
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("class", 'form-group');
+                newTextBoxDiv.html('<label class="col-sm-4 control-label">Veuiller spécifier :</label>' +
+                    '<div class="col-sm-6"><input type="text" name="textbox" id="otherSport" class="form-control" value="" ></div>');
+                $('div.form-group:has(#optionsRadios6)').after(newTextBoxDiv);
+            }
         } else {
             if ($('#otherSport')) {
                 $('div.form-group:has(#otherSport)').remove();
+                isAlreadyThere = null;
             }
         };
     });
 
 
     //Selectionne mon bouton de formulaire et j'écoute le focus out
-    $('button#createAccount').click(function() {
+    $('button#createAccount').click(function () {
 
         // val() fonction jquery pour récupérer la valeur d'un input
 
