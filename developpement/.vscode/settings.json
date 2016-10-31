@@ -1,0 +1,10 @@
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut et les paramètres utilisateur.
+{
+    // Contrôle la famille de polices.
+    "editor.fontFamily": "Hack, Monaco, 'Courier New', monospace",
+
+    // Contrôle la taille de police en pixels.
+    "editor.fontSize": 16,
+    // Contrôle le retour automatique à la ligne. Le retour automatique à la ligne s'effectue à min(editor.wrappingColumn, viewportWidthInColumns).
+    "editor.wordWrap": true
+}

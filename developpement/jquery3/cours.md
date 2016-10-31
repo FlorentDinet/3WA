@@ -1,10 +1,10 @@
 Créer un formulaire de Création de produit avec les validations suivantes:
 
    + Titre du produit (uniquement caractères alpha avec tiret minimum 5 caractères)
-   + Code Barre: 11 caractères numérque au format XXXXX XXXXX X
-   + Description: 10 mots avec des caractres alpha numérique avec espace et baslises HTML <b>
+   + Code Barre: 11 caractères numérique au format XXXXX XXXXX X
+   + Description: 10 mots avec des caractères alpha numérique avec espace et balises HTML <b>
    + Prix: AU format: XX.XX€ avec X un nombre
-   + Disponibilité: date au format dd/mm/YYYY . Verifier que cette date est dans le future avec la fonction Date()
+   + Disponibilité: date au format dd/mm/YYYY . Vérifier que cette date est dans le future avec la fonction Date()
    + Image: image que de type jpg ou jpeg provenant de Amazon S3. L'image apparait en miniature juste en dessous quand je quitte mon champs
    + Quantité minimum: nombre < 10000
    + Quantité maximum: nombre < 10000 et inférieur au maximum
