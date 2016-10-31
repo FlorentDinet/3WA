@@ -10,13 +10,20 @@ $(document).ready(function () {
 
     ////////// TEST PW CONFIRM //////////
 
-    function testConfirm() {
+    function testConfirm(feedback) {
         var pwInput = $('input#pw').val();
         var pwConfirmInput = $('input#pwConfirm').val();
         var isSamePw = pwConfirmInput == pwInput;
         displayState("input#pwConfirm", isSamePw && pwConfirmInput);
+        if (feedback) {
+            $("input#pwConfirm").addClass('animated shake');
+        } else {
+        $("input#pwConfirm").removeClass('animated shake');
+        }
     }
+
     //////////
+
 
     ////////// AVALUATE PW POWER //////////
 
@@ -27,12 +34,15 @@ $(document).ready(function () {
         /[0-9]/,
         /[\-\_\@]/
     ];
+    var pwRegeX = /^[a-z0-9\-\_\@]{8,20}$/;
 
     var pwPw = 0;
+    var isSameAsEmail = false;
+    var pwValid = false;
 
     function testPwPower() {
         var pwInput = $('input#pw').val();
-
+        var pwLength = 0;
 
         // TEST DE COMPLEXITE
         function testRegeX(value) {
@@ -43,24 +53,45 @@ $(document).ready(function () {
         //
 
         // TEST LONGUEUR
-        if (pwInput.length <= 8){
-        var pwLength = pwInput.length;
+        if (pwInput.length <= 8) {
+            pwLength = pwInput.length;
         } else {
             pwLength = 8;
         }
         //
         var maxPw = pwPwRegeX.length * 3 + pwMinLength;
 
-        pwPw =((pwComplexity * 3 + pwLength)*100)/maxPw;
-        
-        return pwPw+'%';
+        pwPw = ((pwComplexity * 3 + pwLength) * 100) / maxPw;
 
+        // TEST DE VALIDITE
+        isSameAsEmail = pwInput == $('input#email').val();
+
+        pwValid = !isSameAsEmail && pwRegeX.test(pwInput);
+
+        return {
+            progress: pwPw + '%',
+            state: pwValid
+        };
     }
     //////////
 
     ////////// ANIMATE PROGRESS BAR //////////
     function animateProgressBar(progressBarID, progress, state) {
-
+        $(progressBarID).css('width', progress);
+        show(state);
+        switch (state) {
+            case true :
+            show('succes');
+                $(progressBarID).removeClass('progress-bar-danger').addClass('progress-bar-success');
+                break;
+            case false :
+            show('error');
+                $(progressBarID).removeClass('progress-bar-success').addClass('progress-bar-danger');
+                break;
+            default:
+                $(progressBarID).removeClass('progress-bar-danger').removeClass('progress-bar-success');
+                break;
+        }
     }
     //////////
 
@@ -75,8 +106,10 @@ $(document).ready(function () {
         //////////
     }
 
-    $('input#pw').keyup(function () {      
-        $('input#pw+div div.progress-bar').css('width',testPwPower());
+    $('input#pw').keyup(function () {
+        var pwPower = testPwPower();
+        displayState("input#pw", pwPower.state);
+        animateProgressBar('input#pw+div div.progress-bar', pwPower.progress, pwPower.state);
     });
 
     $('input#pwConfirm').keyup(function () {
@@ -171,7 +204,7 @@ $(document).ready(function () {
                 $('div.form-group:has(#otherSport)').remove();
                 isAlreadyThere = null;
             }
-        };
+        }
     });
 
 
@@ -249,20 +282,9 @@ $(document).ready(function () {
         displayState("textarea#biographie", biographieNb >= 10);
 
         //////////
-
-        ////////// TEST PW //////////
-        var pwInput = $('input#pw').val();
-        var pwValid = false;
-        var pwRegeX = /^[a-z0-9\-\_\@]{8,20}$/;
-
-        var isSameEmail = emailInput == pwInput;
-
-        pwValid = !isSameEmail && pwRegeX.test(pwInput);
-
-
-        displayState("input#pw", pwValid);
+        testPwPower();
         //////////
-        testConfirm();
+        testConfirm("feedback");
 
         ///// VERIFIE SI LES CGU SONT ACCEPTEES ////
 
