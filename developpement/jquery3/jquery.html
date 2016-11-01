@@ -32,19 +32,21 @@
         <div class="">
             <form class="form-horizontal" novalidate>
                 <fieldset>
-                    ########  TITRE ########
+                    <!--########  TITRE ########-->
                     <div class="form-group">
                         <label for="titre" class="col-sm-4 control-label">Titre du produit</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="titre" placeholder="Titre du produit">
                         </div>
                     </div>
+                    <!--######## CODE BARRE ########-->
                     <div class="form-group">
                         <label for="codeBarre" class="col-sm-4 control-label">Code barre</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="codeBarre" placeholder="Code barre">
                         </div>
                     </div>
+                    <!--######## DESCRIPTION ########-->
                     <div class="form-group">
                         <label for="description" class="col-sm-4 control-label">Description</label>
                         <div class="col-sm-6">
@@ -52,86 +54,58 @@
                             <span id="helpBlock" class="help-block"></span>
                         </div>
                     </div>
+                    <!--######## PRIX ########-->
                     <div class="form-group">
                         <label for="prix" class="col-sm-4 control-label">Prix</label>
                         <div class="col-sm-6">
                             <input type="number" class="form-control" id="prix" placeholder="Prix">
                         </div>
                     </div>
+                    <!--######## DISPO ######## -->
                     <div class="form-group">
                         <label for="disponibilite" class="col-sm-4 control-label">Disponibilité</label>
                         <div class="col-sm-6">
                             <input type="date" min="2000-01-02" class="form-control" name="disponibilite">
                         </div>
                     </div>
+                    <!--######## IMAGE ########-->
                     <div class="form-group">
                         <label for="image" class="col-sm-4 control-label">Image du produit</label>
                         <div class="col-sm-6">
                             <input type="url" class="form-control" id="image" placeholder="Image du produit">
                         </div>
                     </div>
+                    <!--######## QUANTITE MIN ########-->
                     <div class="form-group">
                         <label for="quantiteMin" class="col-sm-4 control-label">Quantité minimum</label>
                         <div class="col-sm-6">
                             <input type="number" min="1" max="10000" class="form-control" id="quantiteMin" placeholder="Quantité minimum">
                         </div>
                     </div>
+                    <!--######## QUANTITE MAX ########-->
                     <div class="form-group">
                         <label for="quantiteMax" class="col-sm-4 control-label">Quantité maximum</label>
                         <div class="col-sm-6">
                             <input type="number" min="1" max="10000" class="form-control" id="quantiteMax" placeholder="Quantité maximum">
                         </div>
                     </div>
+                    <!--######## MOTS CLEF ########-->
                     <div class="form-group">
-                        <label for="description" class="col-sm-4 control-label">Description</label>
+                        <label for="motsclefs" class="col-sm-4 control-label">Mots clefs</label>
                         <div class="col-sm-6">
-                            <textarea class="form-control" rows="3" id="description" placeholder="Description"></textarea>
-                            <span id="helpBlock" class="help-block"></span>
+                            <textarea class="form-control" rows="3" id="motsclefs" placeholder="Mots clefs"></textarea>
+                            <span id="helpBlock" class="help-block">Entrez des mots clefs spéparés par des ","</span>
                         </div>
                     </div>
-                </fieldset>
-                <fieldset>
+                    <!--######## COULEUR ########-->
                     <div class="form-group">
-                        <label for="optionsRadios" class="col-sm-4 control-label">Sport favori</label>
+                        <label for="titre" class="col-sm-4 control-label">Titre du produit</label>
                         <div class="col-sm-6">
-                            <div class="radio">
-                                <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                Foot
-                            </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                Volley
-                            </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option2">
-                                Curling
-                            </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios4" value="option2">
-                                Base-jumping
-                            </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2">
-                                Golf
-                            </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios6" value="option2">
-                                Autre
-                            </label>
-                            </div>
+                            <input type="text" class="form-control" id="titre" placeholder="Titre du produit">
                         </div>
                     </div>
+                    <!--######## TYPE VENTE ########-->
+                    <!--######## BOUTON SUBMIT ########-->
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
