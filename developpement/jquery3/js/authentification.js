@@ -13,8 +13,8 @@ $(document).ready(function () {
 
     var regeX = {
         titre : /^[a-zA-Z0-9\-]{5,}$/,
-        codeBarre : /^[0-9]{4}\ [0-9]{4}\ [0-9]$/,
-        decription : /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
+        codeBarre : /^[0-9]{5}\ [0-9]{5}\ [0-9]$/,
+        description : /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
         prix : /[\d][\d]\.[\d][\d]\€/,
         image : /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_]+(.jpg|.jpeg)$/,
         motsClefs : /\b[\wéèàù]+\b,?/,
@@ -30,7 +30,7 @@ $(document).ready(function () {
         }
     }
 
-    ////////// TEST CODE POSTAL //////////
+    ////////// TEST TITRE //////////
     function testTitre() {
         var titreInput = $('input#titre').val();
         var titreValid = false;
@@ -39,9 +39,32 @@ $(document).ready(function () {
         displayState("input#titre", titreValid);
     }
 
+    /////// TEST CODE BARRE ////
+    function testCodeBarre() {
+        var codeBarreInput = $('input#codeBarre').val();
+        var codeBarreValid = false;
+        codeBarreValid = regeX.codeBarre.test(codeBarreInput);
+
+        displayState("input#codeBarre", codeBarreValid);
+    }
+
+    /////// TEST DESCRIPTION ////
+    function testDescription() {
+        var descriptionInput = $('textarea#description').val();
+        var descriptionValid = false;
+        var descriptionNb = 0;
+        if (descriptionInput) {
+            var descriptionMots = descriptionInput.split(/\b\w+\b/);
+            descriptionNb = descriptionMots.length - 1;
+        }
+        descriptionValid = (regeX.description.test(descriptionInput)) && descriptionNb <= 10;
+
+        displayState("textarea#description", descriptionValid);
+    }
+
+    ////
     $('input#codePostal').blur(function () {
-        testcodePostal();
-        autoCompVille();
+
     });
 
     //////
@@ -83,6 +106,8 @@ $(document).ready(function () {
     //Selectionne mon bouton de formulaire et j'écoute le focus out
     $('button#createProduct').click(function () {
       testTitre();
+      testCodeBarre();
+      testDescription();
 
     });
 
