@@ -11,11 +11,14 @@ $(document).ready(function () {
 
     ////// DEFINITION DES VARIABLES /////////
 
-    var RegeX = {
-        titre : /^[a-zA-Z0-9\-]{2,}$/,
+    var regeX = {
+        titre : /^[a-zA-Z0-9\-]{5,}$/,
         codeBarre : /^[0-9]{4}\ [0-9]{4}\ [0-9]$/,
-        decription : //
-
+        decription : /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
+        prix : /[\d][\d]\.[\d][\d]\€/,
+        image : /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_]+(.jpg|.jpeg)$/,
+        motsClefs : /\b[\wéèàù]+\b,?/,
+        couleurs : /^(#[0-9A-F]{3,6})|(rgba\(([0-2][0-5][0-5],){3}[0-1].[0-9]\))$/
     };
 
     ////////// FEEDBACK EN COULEUR //////////
@@ -25,16 +28,15 @@ $(document).ready(function () {
         } else {
             $('div.form-group:has(' + element + ')').removeClass('has-success').addClass('has-error');
         }
-    }   
+    }
 
     ////////// TEST CODE POSTAL //////////
-    function testcodePostal() {
-        var codePostalInput = $('input#codePostal').val();
-        var codePostalValid = false;
-        var codePostalRegeX = /^[0-9]{5}$/;
-        codePostalValid = codePostalRegeX.test(codePostalInput);
+    function testTitre() {
+        var titreInput = $('input#titre').val();
+        var titreValid = false;
+        titreValid = regeX.titre.test(titreInput);
 
-        displayState("input#codePostal", codePostalValid);
+        displayState("input#titre", titreValid);
     }
 
     $('input#codePostal').blur(function () {
@@ -44,7 +46,7 @@ $(document).ready(function () {
 
     //////
     function lambda () {
-        
+
         ////////// TEST AVATAR URL //////////
         var urlInput = $('input#avatarUrl').val();
         var urlValid = false;
@@ -79,7 +81,8 @@ $(document).ready(function () {
 
 
     //Selectionne mon bouton de formulaire et j'écoute le focus out
-    $('button#createAccount').click(function () {
+    $('button#createProduct').click(function () {
+      testTitre();
 
     });
 
