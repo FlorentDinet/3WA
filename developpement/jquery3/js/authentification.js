@@ -1,7 +1,7 @@
 //...
 //... une fois css et html chargés
 // Ouverture Jquery: 1ere ligne à écrire
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     ///////////// FONCTION D'AFFICHAGE //////////
@@ -12,13 +12,14 @@ $(document).ready(function () {
     ////// DEFINITION DES VARIABLES /////////
 
     var regeX = {
-        titre : /^[a-zA-Z0-9\-]{5,}$/,
-        codeBarre : /^[0-9]{5}\ [0-9]{5}\ [0-9]$/,
-        description : /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
-        prix : /[\d][\d]\.[\d][\d]\€/,
-        image : /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_]+(.jpg|.jpeg)$/,
-        motsClefs : /\b[\wéèàù]+\b,?/,
-        couleurs : /^(#[0-9A-F]{3,6})|(rgba\(([0-2][0-5][0-5],){3}[0-1].[0-9]\))$/
+        titre: /^[a-zA-Z0-9\-]{5,}$/,
+        codeBarre: /^[0-9]{5}\ [0-9]{5}\ [0-9]$/,
+        description: /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
+        prix: /^[\d][\d]\.[\d][\d]\€$/,
+        date: /^[0-3][0-9]\/[0-1][0-9]\/[0-9]{4}$/,
+        image: /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_]+(.jpg|.jpeg)$/,
+        motsClefs: /\b[\wéèàù]+\b,?/,
+        couleurs: /^(#[0-9A-F]{3,6})|(rgba\(([0-2][0-5][0-5],){3}[0-1].[0-9]\))$/
     };
 
     ////////// FEEDBACK EN COULEUR //////////
@@ -62,13 +63,49 @@ $(document).ready(function () {
         displayState("textarea#description", descriptionValid);
     }
 
-    ////
-    $('input#codePostal').blur(function () {
+    ////////// TEST PRIX //////////
+    function testPrix() {
+        var prixInput = $('input#prix').val();
+        var prixValid = false;
+        prixValid = regeX.prix.test(prixInput);
 
+        displayState("input#prix", prixValid);
+    }
+
+    ////////// TEST DISPO //////////
+    function testDispo() {
+        var dispoValid = false;
+        var dateNow = new Date();
+        show(dateNow);
+        var dispoInput = $('input#disponibilite').val();
+        show("dispoInput " + dispoInput);
+        dispoInputAr = dispoInput.split("/");
+        show(dispoInputAr);
+        var dispoInputDate = new Date(dispoInputAr[2], dispoInputAr[1] - 1, dispoInputAr[0]);
+        show(dispoInputDate);
+
+        dispoValid = dispoInputDate > dateNow && regeX.date.test(dispoInput);
+        show(dispoValid);
+
+
+        displayState("input#disponibilite", dispoValid);
+    }
+
+    ////////// TEST IMAGE //////////
+    function testImage() {
+        var imageInput = $('input#image').val();
+        var imageValid = false;
+        imageValid = regeX.image.test(imageInput);
+
+        displayState("input#image", imageValid);
+    }
+
+    //// EXEMPLE D'ACTION QUAND ON QUITTE UN CHAMP ////
+    $('input#image').blur(function() {
+        testImage();
     });
-
     //////
-    function lambda () {
+    function lambda() {
 
         ////////// TEST AVATAR URL //////////
         var urlInput = $('input#avatarUrl').val();
@@ -83,7 +120,7 @@ $(document).ready(function () {
     }
 
     /////// REVEAL OTHERSPORT TEXTBOX //////
-    $('div.radio input').click(function () {
+    $('div.radio input').click(function() {
         var isAlreadyThere = $('#otherSport').length;
         console.log(isAlreadyThere);
         if ($("#optionsRadios6").is(':checked')) {
@@ -104,10 +141,12 @@ $(document).ready(function () {
 
 
     //Selectionne mon bouton de formulaire et j'écoute le focus out
-    $('button#createProduct').click(function () {
-      testTitre();
-      testCodeBarre();
-      testDescription();
+    $('button#createProduct').click(function() {
+        testTitre();
+        testCodeBarre();
+        testDescription();
+        testPrix();
+        testDispo();
 
     });
 
