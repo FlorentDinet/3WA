@@ -11,14 +11,17 @@ $(document).ready(function() {
 
     ////// DEFINITION DES VARIABLES /////////
 
+
+    var quantiteMax = 0;
     var regeX = {
         titre: /^[a-zA-Z0-9\-]{5,}$/,
         codeBarre: /^[0-9]{5}\ [0-9]{5}\ [0-9]$/,
         description: /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
         prix: /^[\d][\d]\.[\d][\d]\€$/,
         date: /^[0-3][0-9]\/[0-1][0-9]\/[0-9]{4}$/,
-        image: /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_]+(.jpg|.jpeg)$/,
-        motsClefs: /\b[\wéèàù]+\b,?/,
+        image: /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_\/]+(.jpg|.jpeg)$/,
+        quantite: /^[0-9]+$/,
+        motsClefs: /^\b[\wéèàù]+\b(,\b[\wéèàù]+\b)+?$/,
         couleurs: /^(#[0-9A-F]{3,6})|(rgba\(([0-2][0-5][0-5],){3}[0-1].[0-9]\))$/
     };
 
@@ -76,16 +79,16 @@ $(document).ready(function() {
     function testDispo() {
         var dispoValid = false;
         var dateNow = new Date();
-        show(dateNow);
+        // show(dateNow);
         var dispoInput = $('input#disponibilite').val();
-        show("dispoInput " + dispoInput);
-        dispoInputAr = dispoInput.split("/");
-        show(dispoInputAr);
+        // show("dispoInput " + dispoInput);
+        dispoInputAr = dispoInput.split(/[/,-]/);
+        // show(dispoInputAr);
         var dispoInputDate = new Date(dispoInputAr[2], dispoInputAr[1] - 1, dispoInputAr[0]);
-        show(dispoInputDate);
+        // show(dispoInputDate);
 
         dispoValid = dispoInputDate > dateNow && regeX.date.test(dispoInput);
-        show(dispoValid);
+        // show(dispoValid);
 
 
         displayState("input#disponibilite", dispoValid);
@@ -97,48 +100,116 @@ $(document).ready(function() {
         var imageValid = false;
         imageValid = regeX.image.test(imageInput);
 
+        if (imageValid) {
+            var imageHTML = $(document.createElement('img'))
+                .attr("src", imageInput);
+            imageHTML.attr("class", "img-thumbnail img-responsive");
+            imageHTML.css("margin-top", "10px");
+            $("div.col-sm-6:has(input#image)").append(imageHTML);
+
+        }
+
         displayState("input#image", imageValid);
     }
 
-    //// EXEMPLE D'ACTION QUAND ON QUITTE UN CHAMP ////
-    $('input#image').blur(function() {
-        testImage();
-    });
-    //////
-    function lambda() {
+    ////////// TEST QUANTITE MAX //////////
+    function testQuantiteMax() {
+        var quantiteMaxInput = parseInt($('input#quantiteMax').val());
+        // show(quantiteMaxInput);
+        var quantiteMaxValid = false;
+        quantiteMaxValid = regeX.quantite.test(quantiteMaxInput) && quantiteMaxInput < 10000;
 
-        ////////// TEST AVATAR URL //////////
-        var urlInput = $('input#avatarUrl').val();
-        var urlValid = false;
-        var urlRegeX = /^((http|ftp)s?:\/\/)[a-z0-9\.\-\_]+\.[a-z]{1,5}\/[a-z0-9\.\-\_]+(.jpg|.gif|.png)$/;
-        urlValid = urlRegeX.test(urlInput);
-
-        displayState("input#avatarUrl", urlValid);
-
-        //////////
-
+        quantiteMax = quantiteMaxInput;
+        displayState("input#quantiteMax", quantiteMaxValid);
     }
 
-    /////// REVEAL OTHERSPORT TEXTBOX //////
-    $('div.radio input').click(function() {
-        var isAlreadyThere = $('#otherSport').length;
-        console.log(isAlreadyThere);
-        if ($("#optionsRadios6").is(':checked')) {
+    ////////// TEST QUANTITE MIN //////////
+    function testQuantiteMin() {
+        var quantiteMinInput = parseInt($('input#quantiteMin').val());
+        var quantiteMinValid = false;
+        quantiteMinValid = regeX.quantite.test(quantiteMinInput) && quantiteMinInput < 10000 && quantiteMinInput <= quantiteMax;
+
+        displayState("input#quantiteMin", quantiteMinValid);
+    }
+
+    ////////// TEST MOTS CLEFS //////////
+    function testMotsClefs(noFeedback) {
+        var motsClefsInput = $('textarea#motsClefs').val();
+        var motsClefsValid = false;
+        var motsClefs = motsClefsInput.match(/[^,]+/g);
+        var motsClefsNb = 0;
+        if (motsClefs) {
+            motsClefsNb = motsClefs.length;
+        } else {
+            motsClefsNb = 0;
+        }
+        $("div.form-group:has(textarea#motsClefs) span.help-block").html("Mot(s) : " + motsClefsNb);
+        motsClefsValid = regeX.motsClefs.test(motsClefsInput) && motsClefsNb >= 10;
+        if (noFeedback) {} else {
+            displayState("textarea#motsClefs", motsClefsValid);
+        }
+    }
+
+    ////////// TEST COULEUR //////////
+    function testCouleur() {
+        var couleurInput = $('input#couleur').val();
+        var couleurValid = false;
+        couleurValid = regeX.couleurs.test(couleurInput);
+
+        displayState("input#couleur", couleurValid);
+    }
+
+    ////////// AFFICHE AU CHAMP AUTRE TYPE DE VENTE //////////
+    function afficheAutreType() {
+        var typeVenteInput = $('select#typeVente').val();
+        show(typeVenteInput);
+        var isAlreadyThere = false;
+        if (typeVenteInput == "Autre") {
+            isAlreadyThere = $('#otherType').length;
+            console.log(isAlreadyThere);
+
             if (!isAlreadyThere) {
                 var newTextBoxDiv = $(document.createElement('div'))
                     .attr("class", 'form-group');
                 newTextBoxDiv.html('<label class="col-sm-4 control-label">Veuiller spécifier :</label>' +
-                    '<div class="col-sm-6"><input type="text" name="textbox" id="otherSport" class="form-control" value="" ></div>');
-                $('div.form-group:has(#optionsRadios6)').after(newTextBoxDiv);
+                    '<div class="col-sm-6"><input type="text" name="textbox" id="otherType" class="form-control" value="" ></div>');
+                $('div.form-group:has(#typeVente)').after(newTextBoxDiv);
             }
         } else {
-            if ($('#otherSport')) {
-                $('div.form-group:has(#otherSport)').remove();
+            if ($('#otherType')) {
+                $('div.form-group:has(#otherType)').remove();
                 isAlreadyThere = null;
             }
         }
+        displayState("select#typeVente", true);
+    }
+
+    //// TEST DU TYPE DE VENTE //////
+    function testType() {
+        var typeVenteInput = $('select#typeVente').val();
+        var typeVenteValid = false;
+        // show(typeVenteInput);
+        typeVenteValid = typeVenteInput;
+        displayState("select#typeVente", typeVenteValid);
+
+    }
+
+    //// ON AGIT À L'ÉCRITURE DANS LE CHAMP MOTS CLEFS /////
+    $('textarea#motsClefs').keyup(function() {
+        testMotsClefs(true);
     });
 
+    //// ACTION QUAND ON SELECT TYPE DE VENTE ////
+    $('select#typeVente').change(function() {
+        afficheAutreType();
+    });
+    //////
+
+    //// ACTION QUAND ON QUITTE LE CHAMP IMAGE ////
+    $('input#image').blur(function() {
+        testImage();
+    });
+    //////
 
     //Selectionne mon bouton de formulaire et j'écoute le focus out
     $('button#createProduct').click(function() {
@@ -147,6 +218,11 @@ $(document).ready(function() {
         testDescription();
         testPrix();
         testDispo();
+        testQuantiteMin();
+        testQuantiteMax();
+        testMotsClefs();
+        testCouleur();
+        testType();
 
     });
 

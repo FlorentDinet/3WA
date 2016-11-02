@@ -16,3 +16,8 @@ Créer un formulaire de Création de produit avec les validations suivantes:
 
 
    Bonus: Utiliser le plugin Summernote en Jquery pour la description du Produit
+
+
+https://s3.amazonaws.com/codecademy-blog/assets/puppy-7_zps26e8a8d9.jpg
+
+jquery mask

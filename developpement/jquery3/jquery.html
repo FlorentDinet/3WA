@@ -66,7 +66,7 @@
                     <div class="form-group">
                         <label for="disponibilite" class="col-sm-4 control-label">Disponibilité</label>
                         <div class="col-sm-6">
-                            <input type="date" min="2000-01-02" class="form-control" id="disponibilite">
+                            <input type="text" class="form-control" id="disponibilite">
                         </div>
                     </div>
                     <!--######## IMAGE ########-->
@@ -76,13 +76,6 @@
                             <input type="url" class="form-control" id="image" placeholder="Image du produit" value="dsffdgdfgfd">
                         </div>
                     </div>
-                    <!--######## QUANTITE MIN ########-->
-                    <div class="form-group">
-                        <label for="quantiteMin" class="col-sm-4 control-label">Quantité minimum</label>
-                        <div class="col-sm-6">
-                            <input type="number" min="1" max="10000" class="form-control" id="quantiteMin" placeholder="Quantité minimum">
-                        </div>
-                    </div>
                     <!--######## QUANTITE MAX ########-->
                     <div class="form-group">
                         <label for="quantiteMax" class="col-sm-4 control-label">Quantité maximum</label>
@@ -90,12 +83,21 @@
                             <input type="number" min="1" max="10000" class="form-control" id="quantiteMax" placeholder="Quantité maximum">
                         </div>
                     </div>
+                    <!--######## QUANTITE MIN ########-->
+                    <div class="form-group">
+                        <label for="quantiteMin" class="col-sm-4 control-label">Quantité minimum</label>
+                        <div class="col-sm-6">
+                            <input type="number" min="1" max="10000" class="form-control" id="quantiteMin" placeholder="Quantité minimum">
+                        </div>
+                    </div>
                     <!--######## MOTS CLEF ########-->
                     <div class="form-group">
-                        <label for="motsclefs" class="col-sm-4 control-label">Mots clefs</label>
+                        <div class="col-sm-4 text-right">
+                            <label for="motsClefs" class="control-label">Mots clefs</label>
+                            <span class="help-block">Mot(s) : 0</span>
+                        </div>
                         <div class="col-sm-6">
-                            <textarea class="form-control" rows="3" id="motsclefs" placeholder="Mots clefs"></textarea>
-                            <span id="helpBlock" class="help-block">Entrez des mots clefs spéparés par des ","</span>
+                            <textarea class="form-control" rows="3" id="motsClefs" placeholder="Mots clefs"></textarea>
                         </div>
                     </div>
                     <!--######## COULEUR ########-->
@@ -110,6 +112,7 @@
                         <label for="typeVente" class="col-sm-4 control-label">Type de vente</label>
                         <div class="col-sm-6">
                             <select id="typeVente" class="form-control">
+                              <option disabled selected value> <i>Veuillez selectionner un type</i></option>
                                 <option>Neuf</option>
                                 <option>Occasion</option>
                                 <option>Dématérialisé</option>
