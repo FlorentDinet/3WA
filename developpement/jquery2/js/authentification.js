@@ -180,7 +180,7 @@ $(document).ready(function () {
 
     /////// REVEAL PASSWORD //////
     $('#revealPw').click(function () {
-        if ($("#revealPw").is(':checked')) {
+        if ($(this).is(':checked')) {
             $('#pw').attr('type', 'text');
         } else {
             $('#pw').attr('type', 'password');

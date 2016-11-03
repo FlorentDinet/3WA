@@ -4,6 +4,42 @@
 $(document).ready(function() {
 
 
+    ///// BOOTSTRAP SLIDER //////
+    // Instantiate a slider
+    var prixSlider = $("input#prix").slider();
+    $("#prix").on("slide", function(slideEvt) {
+        $("#prixCurrentValue").text(slideEvt.value);
+    });
+    $('#description').summernote({
+        toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold']]
+
+        ],
+        enterHtml: ''
+    });
+
+    //// JQUERY MASK //////
+
+    $('#disponibilite').mask('00/00/0000');
+
+    $('#codeBarre').mask('00000 00000 0');
+
+
+    // JQUERY DATE PICKER ///
+    $('#datetimepicker1').datetimepicker({
+        format: "DD/MM/YYYY"
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: "LT"
+    });
+
+    /// BOOTSTRAP-COLORPICKER ////
+    $('#couleur').colorpicker({ /*options...*/
+    });
+
+
+
     ///////////// FONCTION D'AFFICHAGE //////////
     function show(message) {
         console.log(message);
@@ -11,18 +47,22 @@ $(document).ready(function() {
 
     ////// DEFINITION DES VARIABLES /////////
 
-
     var quantiteMax = 0;
     var regeX = {
         titre: /^[a-zA-Z0-9\-]{5,}$/,
         codeBarre: /^[0-9]{5}\ [0-9]{5}\ [0-9]$/,
-        description: /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/,
-        prix: /^[\d][\d]\.[\d][\d]\€$/,
+        description: /(([\w\(\)\é\è\à\ù\&\.\,\ \!\?\\n\r]+)|(<\/?b>? ))(?: ([\w\(\)\é\è\à\ù\&\.\,\ \!\?\\n\r]+)|(<\/?(b|p|br)>)){9,}/,
+        //([\w\(\)\é\è\à\ù\&\.\,\ \!\?\\n\r]+)|(<\/?b>)/
+        // /[\w\(\)\é\è\à\ù\&\.\,<>\ \!\?\\n\r]/
+        prix: /^[\d][\d]?\.?\,?([\d][\d])?\€$/,
         date: /^[0-3][0-9]\/[0-1][0-9]\/[0-9]{4}$/,
+        heure:/^[0-2][0-9]\:[0-6][0-9]$/,
         image: /^(https:\/\/s3.amazonaws\.com\/)[a-z0-9\-\_\/]+(.jpg|.jpeg)$/,
         quantite: /^[0-9]+$/,
         motsClefs: /^\b[\wéèàù]+\b(,\b[\wéèàù]+\b)+?$/,
-        couleurs: /^(#[0-9A-F]{3,6})|(rgba\(([0-2][0-5][0-5],){3}[0-1].[0-9]\))$/
+        couleurs: /^((#[0-9A-Fa-f]{3,6})|(rgba\(\s*(0|[1-9]\d?|1\d\d?|2[0-4]\d|25[0-5])\s*,\s*(0|[1-9]\d?|1\d\d?|2[0-4]\d|25[0-5])\s*,\s*(0|[1-9]\d?|1\d\d?|2[0-4]\d|25[0-5])\s*,\s*((0.[1-9])|[01])\s*\)))$/
+
+        //  /^(#[0-9A-F]{3,6})|(rgba\(([0-2][0-5][0-5],){3}[0-1].[0-9]\))$/
     };
 
     ////////// FEEDBACK EN COULEUR //////////
@@ -54,7 +94,10 @@ $(document).ready(function() {
 
     /////// TEST DESCRIPTION ////
     function testDescription() {
-        var descriptionInput = $('textarea#description').val();
+        // var descriptionInput = $('textarea#description').val();
+        var descriptionInput = $('textarea#description+div div.note-editable').html();
+        // .replace(/(<\/?(br|p)\/?>)/g,'');
+        // show(descriptionInput);
         var descriptionValid = false;
         var descriptionNb = 0;
         if (descriptionInput) {
@@ -63,12 +106,20 @@ $(document).ready(function() {
         }
         descriptionValid = (regeX.description.test(descriptionInput)) && descriptionNb <= 10;
 
+        // show(descriptionNb);
+
+        descriptionValid = regeX.description.test(descriptionInput);
+
         displayState("textarea#description", descriptionValid);
     }
 
+
+
     ////////// TEST PRIX //////////
     function testPrix() {
-        var prixInput = $('input#prix').val();
+        var prixInput = $('#prix').val() + "€";
+        //var prixInput = prixSlider.value;
+        show(prixInput);
         var prixValid = false;
         prixValid = regeX.prix.test(prixInput);
 
@@ -92,6 +143,17 @@ $(document).ready(function() {
 
 
         displayState("input#disponibilite", dispoValid);
+    }
+
+    ////////// TEST HEURE DISPO //////////
+    function testHeureDispo() {
+        var heureInput = $('#h-disponibilite').val();
+        //var heureInput = heureSlider.value;
+        show(heureInput);
+        var heureValid = false;
+        heureValid = regeX.heure.test(heureInput);
+
+        displayState("input#h-disponibilite", heureValid);
     }
 
     ////////// TEST IMAGE //////////
@@ -218,6 +280,8 @@ $(document).ready(function() {
         testDescription();
         testPrix();
         testDispo();
+        testHeureDispo();
+        testImage();
         testQuantiteMin();
         testQuantiteMax();
         testMotsClefs();

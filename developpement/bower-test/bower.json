@@ -1,0 +1,22 @@
+{
+  "name": "bower-test",
+  "homepage": "https://github.com/FlorentDinet/3WA",
+  "authors": [
+    "flodi <florent@flodi.fr>"
+  ],
+  "description": "test bower",
+  "main": "",
+  "license": "none",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.43",
+    "moment": "^2.15.2"
+  }
+}

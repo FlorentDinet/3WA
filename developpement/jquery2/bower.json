@@ -1,0 +1,20 @@
+{
+  "name": "jquery2",
+  "homepage": "https://github.com/FlorentDinet/3WA",
+  "authors": [
+    "flodi <florent@flodi.fr>"
+  ],
+  "description": "jquery2 test bower",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
