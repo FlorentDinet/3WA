@@ -38,6 +38,8 @@ $(document).ready(function() {
     $('#couleur').colorpicker({ /*options...*/
     });
 
+    
+
 
 
     ///////////// FONCTION D'AFFICHAGE //////////

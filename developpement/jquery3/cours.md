@@ -29,8 +29,7 @@ Créer un formulaire de Création de produit avec les validations suivantes:
    Bonus 3 : Intégrer le plugin Jquery Datepicker https://eonasdan.github.io/bootstrap-datetimepicker/
    Bonus 4: Intégrer le COlor picker http://www.eyecon.ro/colorpicker/
 
-Bonus Ultime: Quand je soumet l formulaire et si la description est valide,
-   								J'affiche la description en dessous en entourant les texte @Compte Twitter par un lien <a> sur Twiter
+Bonus Ultime: Quand je soumet l formulaire et si la description est valide, J'affiche la description en dessous en entourant les texte @Compte Twitter par un lien <a> sur Twiter
                   et les #hashtag par des liens sur le hashtag de twitter
                   Les liens vers des images seront également remplacer par des images responsive
 
