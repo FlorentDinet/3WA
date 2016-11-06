@@ -32,20 +32,38 @@
             width: 90%;
             margin: auto;
         }
-        /* fluid 5 columns */
 
         .grid-sizer,
         .grid-item {
-            width: 20%;
-            padding: 10px;
+            width: 22%;
+            margin-bottom: 4%;
         }
-        /* 2 columns */
+
+        .gutter-sizer {
+            width: 4%;
+        }
 
         .grid-item--width2 {
-            width: 40%;
+            width: 48%;
         }
 
-        .card {margin: 0;}
+        .card {
+            margin: 0;
+            overflow:hidden;
+        }
+
+        @media screen and (max-width: 768px) {
+            .grid-sizer,
+            .grid-item {
+                width: 48%;
+            }
+            .gutter-sizer {
+                width: 4%;
+            }
+            .grid-item--width2 {
+                width: 48%;
+            }
+        }
     </style>
 </head>
 
@@ -55,7 +73,7 @@
 
     <div class="chocolat-parent grid" data-chocolat-title="set title">
         <div class="grid-sizer"></div>
-
+        <div class="gutter-sizer"></div>
     </div>
 
 

@@ -1,0 +1,14 @@
+{
+  "name": "sketch.js",
+  "homepage": "https://github.com/soulwire/sketch.js",
+  "_release": "a68b9473e8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a68b9473e82fb5fd45f83b8ac3df1d0051874cd9"
+  },
+  "_source": "https://github.com/soulwire/sketch.js.git",
+  "_target": "*",
+  "_originalSource": "sketch.js",
+  "_direct": true
+}
