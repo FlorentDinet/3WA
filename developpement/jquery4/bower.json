@@ -18,6 +18,7 @@
     "materialize": "^0.97.8",
     "chocolat": "^0.4.14",
     "masonry": "^4.1.1",
-    "imagesloaded": "^4.1.1"
+    "imagesloaded": "^4.1.1",
+    "isotope": "^3.0.1"
   }
 }

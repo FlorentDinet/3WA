@@ -17,7 +17,10 @@
     <script type="text/javascript" src="bower_components/chocolat/dist/js/jquery.chocolat.js"></script>
     <link rel="stylesheet" href="bower_components/chocolat/dist/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
     <!-- MASONRY -->
-    <script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+    <!-- <script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script> -->
+    <!-- ISOTOPE -->
+    <script src="bower_components/isotope/dist/isotope.pkgd.min.js"></script>
+
     <!-- IMAGES LOADED -->
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
     <!-- MON SCRIPT  -->
@@ -49,7 +52,7 @@
 
         .card {
             margin: 0;
-            overflow:hidden;
+            overflow: hidden;
         }
 
         @media screen and (max-width: 768px) {
@@ -70,6 +73,12 @@
 <body>
 
     <h1 class="center-align">kitteh</h1>
+
+    <div class="button-group filter-button-group center-align">
+        <button data-filter="*">tout les kitteh</button>
+        <button data-filter=".cute">cute kitteh</button>
+        <button data-filter=".weird">weird kitteh</button>
+    </div>
 
     <div class="chocolat-parent grid" data-chocolat-title="set title">
         <div class="grid-sizer"></div>
