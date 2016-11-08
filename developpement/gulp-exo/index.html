@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image grid jquery</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- MATERIALIZE -->
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" media="screen,projection" />
+    <!--  CHOCOLAT FANCY BOX  -->
+    <script type="text/javascript" src="bower_components/chocolat/dist/js/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="bower_components/chocolat/dist/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
+    <!-- MASONRY -->
+    <!-- <script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script> -->
+    <!-- ISOTOPE -->
+    <script src="bower_components/isotope/dist/isotope.pkgd.min.js"></script>
+
+    <!-- IMAGES LOADED -->
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+    <!-- MON SCRIPT  -->
+    <script type="text/javascript" src="js/one.js"></script>
+    <!-- INDOC CSS -->
+    <style type="text/css">
+        body {
+            padding: 20px 0 100px 0;
+        }
+
+        .chocolat-parent {
+            width: 90%;
+            margin: auto;
+        }
+
+        .grid-sizer,
+        .grid-item {
+            width: 22%;
+            margin-bottom: 4%;
+        }
+
+        .gutter-sizer {
+            width: 4%;
+        }
+
+        .grid-item--width2 {
+            width: 48%;
+        }
+
+        .card {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 768px) {
+            .grid-sizer,
+            .grid-item {
+                width: 48%;
+            }
+            .gutter-sizer {
+                width: 4%;
+            }
+            .grid-item--width2 {
+                width: 48%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="center-align">kitteh</h1>
+
+    <div class="button-group filter-button-group center-align">
+        <button data-filter="*">tout les kitteh</button>
+        <button data-filter=".cute">cute kitteh</button>
+        <button data-filter=".weird">weird kitteh</button>
+    </div>
+
+    <div class="chocolat-parent grid" data-chocolat-title="set title">
+        <div class="grid-sizer"></div>
+        <div class="gutter-sizer"></div>
+    </div>
+
+
+</body>
+
+</html>
