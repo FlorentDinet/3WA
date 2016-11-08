@@ -1,0 +1,20 @@
+{
+  "name": "ajax1",
+  "homepage": "https://github.com/FlorentDinet/3WA",
+  "authors": [
+    "flodi <florent@flodi.fr>"
+  ],
+  "description": "ajax exo1",
+  "main": "index.html",
+  "license": "none",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.8"
+  }
+}

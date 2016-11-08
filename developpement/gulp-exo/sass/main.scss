@@ -1,0 +1,19 @@
+//Syntaxe d’importation dans Sass
+
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/input';
+
+
+body {
+  h1,h2,h3 {
+    color: $primary;
+    font-family: $primary-font;
+  }
+}
+form {
+  input {
+    background-color: $second;
+    font-family: $secondary-font;
+  }
+}

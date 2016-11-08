@@ -1,0 +1,11 @@
+input {
+  color:$primary;
+  @include inputBeautify("5px","1px solid red","Comic sans MS");
+
+  &[type='text']{
+    color: $second;
+  }
+  &[type='url']{
+    color: $primary;
+  }
+}

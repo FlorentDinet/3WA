@@ -74,7 +74,8 @@ gulp.task('js', function() {
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   })) // débogage de mes pipes
-    .pipe(concat('min.js'))
+    // .pipe(concat('min.js'))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(uglify()) //minify js
     .pipe(gulp.dest('dist/js')) // repertoire distant
     .pipe(notify("Js Modifié")) // notification
