@@ -1,0 +1,23 @@
+:root {
+  overflow: hidden;
+}
+div, span {
+  position: absolute;
+}
+div {
+  width: 550px;
+  height: 550px;
+  left: calc(50% - 275px);
+  top: calc(50% - 275px);
+}
+span {
+  width: 8px;
+  height: 60px;
+  left: calc(50% - 4px);
+  border-radius: 4px;
+  -webkit-transform-origin: 50% 275px;
+  transform-origin: 50% 275px;
+}
+.disabled {
+  pointer-events: none;
+}

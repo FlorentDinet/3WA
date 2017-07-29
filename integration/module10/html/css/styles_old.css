@@ -13,7 +13,7 @@ img {
 
 body {
     /*Dégradé de background*/
-    background: linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #e64856 30%, #e64856 66.66%, #482637 66.66%, #482637 100%), #482637;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 33.33%, #e64856 33.33%, #e64856 66.66%, #482637 66.66%, #482637 100%), #482637;
     background-repeat: no-repeat, repeat;
     background-size: 1920px 1920px, auto auto;
     background-position: right top, center bottom;
@@ -104,8 +104,6 @@ h2 span {
     color: #482637;
     text-align: center;
     min-width: 20%;
-    display: flex;
-    flex-flow: column;
 }
 
 .product:first-child {
@@ -114,10 +112,6 @@ h2 span {
 
 .product:last-child {
     margin-right: 0;
-}
-
-.product div[itemprop="offers"] {
-    margin-top: auto;
 }
 
 h3 {
@@ -196,7 +190,6 @@ footer p {
     }
     h2 {
         text-align: center;
-        padding-left: 0;
     }
     .product {
         min-width: 40%;
@@ -228,79 +221,4 @@ footer p {
 }
 
 
-/*FLEX SLIDER*/
-
-.flexslider {
-    border: none;
-}
-
-
-/*WOO COMMERCE */
-
-.added_to_cart, .add_to_cart_button {
-    text-decoration: none;
-    padding: .8rem;
-    display: inline-block;
-    margin: .8rem;
-}
-
-.price {
-    color: #0FD85F;
-    font-size: 1.8rem;
-}
-
-.price span:nth-child(n+5) {
-    font-size: 1rem;
-}
-
-.add_to_cart_button {
-    color: #482637;
-    background-color: #0FD85F;
-}
-
-.added_to_cart {
-    color: white;
-    background-color: #e64856;
-}
-
-.cart-contents {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    color: #e64856;
-    background: white;
-    height: 47px;
-    padding: .5rem;
-    border-radius: 50%;
-}
-
-.cart-contents .fa {
-    margin-right: .2rem;
-}
-
-.flexslider:hover .flex-direction-nav .flex-prev {
-    left: 20px;
-}
-
-.flexslider:hover .flex-direction-nav .flex-next {
-    right: 20px;
-}
-
-.flex-direction-nav a::before {
-    font-size: 40px;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.80);
-}
-
-.flex-control-paging li a.flex-active {
-    background: rgba(255, 255, 255, 1);
-}
-
-.flex-control-paging li a {
-    background: #666;
-    background: rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
 }
